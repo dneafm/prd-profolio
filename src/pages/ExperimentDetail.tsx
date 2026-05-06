@@ -43,6 +43,8 @@ export function ExperimentDetail() {
     const supportImages = cs.images?.slice(1) ?? [];
     const workflowSteps = (cs.howItWorks ?? []).slice(0, 4);
     const usefulBullets = (cs.usefulBullets ?? []).slice(0, 4);
+    const setupDetails = (cs.setupDetails ?? []).slice(0, 3);
+    const workerDetails = (cs.workerDetails ?? []).slice(0, 3);
 
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto max-w-6xl space-y-10 pb-20">
@@ -144,6 +146,36 @@ export function ExperimentDetail() {
             </div>
           </div>
         </section>
+
+        {(setupDetails.length > 0 || workerDetails.length > 0) && (
+          <section className="grid gap-6 lg:grid-cols-2">
+            {setupDetails.length > 0 && (
+              <div className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
+                <SectionLabel>Bot setup</SectionLabel>
+                <div className="mt-5 space-y-3">
+                  {setupDetails.map((item: string, i: number) => (
+                    <div key={i} className="rounded-2xl border border-zinc-200/70 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
+                      <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {workerDetails.length > 0 && (
+              <div className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
+                <SectionLabel>Workers</SectionLabel>
+                <div className="mt-5 space-y-3">
+                  {workerDetails.map((item: string, i: number) => (
+                    <div key={i} className="rounded-2xl border border-zinc-200/70 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
+                      <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
 
         {workflowSteps.length > 0 && (
           <section className="space-y-5">

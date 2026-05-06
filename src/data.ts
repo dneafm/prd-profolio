@@ -128,6 +128,16 @@ export const experiments: any[] = [
         { title: "Better exit and settlement visibility", desc: "Execution outcome and settlement details are easier to review after the trade closes." },
         { title: "Post-trade learning loop", desc: "The trade becomes something that can be reviewed and improved, not just remembered vaguely." }
       ],
+      setupDetails: [
+        "Bot setup starts with naming the workstation bot and selecting the exact symbols it will operate on, so the operator is defining scope before any execution logic is active.",
+        "Timeframe and settlement choices are configured in the same flow, which keeps trade horizon, operational rhythm, and close logic aligned instead of scattered across different screens.",
+        "Readiness is treated like a real preflight step. The bot is not just 'created'; it becomes deployable only when setup quality, context, and downstream worker expectations are clear enough to support live operation."
+      ],
+      workerDetails: [
+        "Workers are specialized roles inside the trading workflow rather than generic background processes. They divide responsibility across setup review, monitoring, and follow-up so the operator is not carrying every task alone in memory.",
+        "Crew roles help separate who prepares context, who watches live conditions, and who tracks what changed after execution begins. That makes the system easier to scan under pressure.",
+        "The point of workers is not visual complexity. It is operational clarity: each worker represents a function in the workflow, so the operator can understand where attention should go next and what part of the system is responsible for it."
+      ],
       usefulBullets: [
         "Reduces emotional and inconsistent execution",
         "Makes trade preparation more repeatable",
@@ -139,10 +149,10 @@ export const experiments: any[] = [
       outcome: "DJ Trade moves manual trading away from reactive chart-watching and toward a more standardized operational method. The value is not only better interface clarity. It is the ability to show where the operator is in the workflow and what must be true before the next action is safe.",
       closingLine: "DJ Trade helps standardize manual trading so progress is tied to real workflow structure, not memory, impulse, or vague status labels.",
       images: [
-        { src: "/dj-djtrade_v3_live_shell_overview.png", role: "hero", story: "Control-surface overview showing live state, system health, and operator guidance in one trading workspace." },
-        { src: "/dj-trade/dj-trade-workstation-new-bot.png", role: "support-1", story: "Workstation setup keeps bot name, symbols, timeframes, crew roles, and settlement choices legible in one place before the workflow goes live." },
-        { src: "/dj-trade/dj-trade-position-monitor.jpg", role: "support-2", story: "Position Monitor turns open exposure into one scanable surface, showing total risk, unrealized PNL, and per-symbol bot context before the operator intervenes." },
-        { src: "/dj-trade/dj-trade-workstation-configure-bot.jpg", role: "support-3", story: "The new bot configuration flow keeps symbol selection, timeframe, settlement window, and crew deployment together so the operator can shape a workstation bot without jumping between surfaces." }
+        { src: "/dj-djtrade_v3_live_shell_overview.png", role: "hero", story: "Control-surface overview showing live state, system health, worker coordination, and operator guidance in one trading workspace." },
+        { src: "/dj-trade/dj-trade-workstation-new-bot.png", role: "support-1", story: "New bot setup makes symbol scope, timeframe, settlement choice, and crew-role assignment readable in one place before a workstation bot is allowed to go live." },
+        { src: "/dj-trade/dj-trade-position-monitor.jpg", role: "support-2", story: "Position Monitor shows how live exposure, unrealized PNL, and per-symbol bot context stay visible while workers and operator roles handle monitoring instead of relying on memory alone." },
+        { src: "/dj-trade/dj-trade-workstation-configure-bot.jpg", role: "support-3", story: "Bot configuration ties readiness decisions to deployment structure, so worker responsibilities and workstation settings are shaped together instead of being patched in later." }
       ]
     }
   },

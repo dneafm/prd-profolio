@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Linkedin, Twitter, ArrowUpRight, type LucideIcon } from "lucide-react";
+import { Mail, Linkedin, X, ArrowUpRight, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ContactNode {
@@ -41,7 +41,7 @@ const CONTACT_NODES: ContactNode[] = [
     subtitle: "Public notes, observations, and directional thinking",
     value: "@deandea74",
     meta: ["notes / signals", "public layer only"],
-    icon: Twitter,
+    icon: X,
     href: "https://x.com/deandea74",
     type: "secondary",
   },

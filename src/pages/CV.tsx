@@ -1,8 +1,29 @@
 import { motion } from "motion/react";
-import { Download, Mail, Linkedin, Twitter, Globe, ArrowUpRight } from "lucide-react";
+import { Download, Mail, Linkedin, X, Globe, ArrowUpRight, Activity, Boxes, Gauge, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const CV_PDF_PATH = "/Hoang-Pham-CV.pdf";
+const signalCards = [
+  {
+    title: "9 years",
+    detail: "inside fast-moving digital work",
+    icon: Activity,
+  },
+  {
+    title: "Crypto-native",
+    detail: "comfortable in dense product context",
+    icon: Gauge,
+  },
+  {
+    title: "Workflow-first",
+    detail: "repeatable systems over one-off output",
+    icon: Boxes,
+  },
+  {
+    title: "Builder mode",
+    detail: "tools, ops, structure, execution",
+    icon: Wrench,
+  },
+];
 
 export function CV() {
   return (
@@ -13,7 +34,7 @@ export function CV() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="cv-print-page bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl shadow-black/40 dark:shadow-black/60 min-h-[1100px] font-sans selection:bg-blue-50 dark:selection:bg-blue-900/30 selection:text-blue-700 dark:selection:text-blue-300 relative overflow-hidden transition-colors duration-300"
+        className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl shadow-black/40 dark:shadow-black/60 min-h-[1100px] font-sans selection:bg-blue-50 dark:selection:bg-blue-900/30 selection:text-blue-700 dark:selection:text-blue-300 relative overflow-hidden transition-colors duration-300"
       >
         {/* Top Header Band */}
         <div className="h-1.5 bg-blue-600 w-full" />
@@ -25,7 +46,7 @@ export function CV() {
               <div>
                 <h1 className="text-6xl font-black tracking-tighter text-zinc-900 dark:text-zinc-100 mb-3">Hoang Pham</h1>
                 <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 max-w-xl leading-tight tracking-tight">
-                  Crypto-native operator-designer focused on workflows, creative ops, and internal tools for high-context teams
+                  Product and operations builder focused on internal tools, workflows, dashboards, and automation
                 </p>
               </div>
               
@@ -45,19 +66,13 @@ export function CV() {
               </div>
             </div>
 
-            <div className="cv-download-actions flex flex-col items-end gap-4">
-              <a
-                href={CV_PDF_PATH}
-                download="Hoang-Pham-CV.pdf"
-                type="application/pdf"
-                className="group inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-xl shadow-zinc-900/10 dark:shadow-white/5 hover:shadow-blue-600/20"
-                aria-label="Download Hoang Pham CV as a PDF"
-              >
+            <div className="flex flex-col items-end gap-4">
+              <button className="group inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-xl shadow-zinc-900/10 dark:shadow-white/5 hover:shadow-blue-600/20">
                 <Download className="w-4 h-4" /> Download CV
-              </a>
+              </button>
               <div className="flex gap-2">
                 <a href="#" className="p-3 bg-zinc-50 dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all rounded-xl border border-zinc-100 dark:border-zinc-800">
-                  <Twitter className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </a>
                 <a href="#" className="p-3 bg-zinc-50 dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all rounded-xl border border-zinc-100 dark:border-zinc-800">
                   <Linkedin className="w-4 h-4" />
@@ -73,14 +88,30 @@ export function CV() {
             <div className="md:col-span-8 space-y-20">
               
               {/* Summary */}
-              <section className="relative">
-                <div className="flex items-center gap-4 mb-8">
+              <section className="relative space-y-8">
+                <div className="flex items-center gap-4">
                   <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">Executive Summary</h2>
                   <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
-                  "9 years across visual systems, crypto-native environments, and fast-moving execution. Strongest at turning dense context into clearer outputs, repeatable workflows, and practical internal systems that help teams move with less friction."
+                  "I build practical systems that make work clearer, faster, and easier to run. My focus is on internal tools, dashboards, workflow systems, growth systems, and lightweight automation. I work best where things are still messy, manual, or fragmented and need to be turned into something usable and scalable."
                 </p>
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  {signalCards.map((card) => {
+                    const Icon = card.icon;
+                    return (
+                      <div key={card.title} className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-5 dark:border-zinc-800 dark:bg-zinc-950/70">
+                        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div className="space-y-1.5">
+                          <p className="text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">{card.title}</p>
+                          <p className="text-[13px] font-semibold leading-relaxed text-zinc-500 dark:text-zinc-400">{card.detail}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </section>
 
               {/* Top Experience */}
@@ -97,11 +128,12 @@ export function CV() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="group relative"
+                    className="group relative border-l border-zinc-100 pl-6 dark:border-zinc-800"
                   >
+                    <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-blue-600 dark:bg-blue-400" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Independent Operator / Designer / Builder</h3>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Independent Product Operator / Builder</h3>
                         <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2025 — PRES</span>
                       </div>
                       <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Self-directed / High-Context Freelance</p>
@@ -109,7 +141,7 @@ export function CV() {
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
                       <li className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Worked as a strategic design partner for <span className="text-zinc-900 dark:text-zinc-100 font-bold">Drift Protocol</span>, focusing on interface clarity and operator-facing workflow support.</span>
+                        <span>Worked with <span className="text-zinc-900 dark:text-zinc-100 font-bold">Drift Protocol</span> on interface clarity, operator-facing workflow support, and clearer execution surfaces.</span>
                       </li>
                       <li className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
@@ -129,11 +161,12 @@ export function CV() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="group relative"
+                    className="group relative border-l border-zinc-100 pl-6 dark:border-zinc-800"
                   >
+                    <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Workflow Systems Operator</h3>
                         <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2024 — 2025</span>
                       </div>
                       <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Factor <span className="text-zinc-300 dark:text-zinc-700 font-normal mx-1">/</span> DeFi Infrastructure</p>
@@ -141,15 +174,15 @@ export function CV() {
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
                       <li className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Built <span className="text-zinc-900 dark:text-zinc-100 font-bold">modular visual frameworks</span> that scaled across brand, campaign, and product surfaces with consistent execution.</span>
+                        <span>Built <span className="text-zinc-900 dark:text-zinc-100 font-bold">modular operating frameworks</span> that scaled across recurring work, product-adjacent surfaces, and internal execution rhythms.</span>
                       </li>
                       <li className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Reduced creative turnaround time by 40% through the implementation of repeatable design workflows and asset libraries.</span>
+                        <span>Reduced turnaround time by 40% through repeatable workflow structures, reusable systems, and lower-friction execution patterns.</span>
                       </li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['System Design', 'Visual Ops', 'DeFi Context'].map(tag => (
+                      {['Systems Thinking', 'Workflow Ops', 'DeFi Context'].map(tag => (
                         <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>
@@ -161,11 +194,12 @@ export function CV() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="group relative"
+                    className="group relative border-l border-zinc-100 pl-6 dark:border-zinc-800"
                   >
+                    <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Systems-Minded Operator</h3>
                         <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2022 — 2024</span>
                       </div>
                       <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Kyber Network <span className="text-zinc-300 dark:text-zinc-700 font-normal mx-1">/</span> DeFi Ecosystem</p>
@@ -173,11 +207,11 @@ export function CV() {
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
                       <li className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Translated high-complexity DeFi mechanics into <span className="text-zinc-900 dark:text-zinc-100 font-bold">accessible visual narratives</span> for a global crypto-native audience.</span>
+                        <span>Translated high-complexity DeFi mechanics into <span className="text-zinc-900 dark:text-zinc-100 font-bold">clearer operator-facing communication</span> for a global crypto-native audience.</span>
                       </li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['Crypto Native', 'Education', 'Visual Comm'].map(tag => (
+                      {['Crypto Native', 'Education', 'Clarity Systems'].map(tag => (
                         <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>
@@ -235,8 +269,8 @@ export function CV() {
                 <div className="space-y-6">
                   <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400 mb-6">Network</h2>
                   {[
-                    { label: "Portfolio", href: "#" },
-                    { label: "Casefiles", href: "#" }
+                    { label: "Portfolio", href: "/" },
+                    { label: "Operator Lab", href: "/operator-lab" }
                   ].map((link, i) => (
                     <motion.a 
                       key={link.label}
@@ -273,7 +307,7 @@ export function CV() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="cv-print-page bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl shadow-black/40 dark:shadow-black/60 min-h-[1100px] font-sans selection:bg-blue-50 dark:selection:bg-blue-900/30 selection:text-blue-700 dark:selection:text-blue-300 relative overflow-hidden transition-colors duration-300"
+        className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl shadow-black/40 dark:shadow-black/60 min-h-[1100px] font-sans selection:bg-blue-50 dark:selection:bg-blue-900/30 selection:text-blue-700 dark:selection:text-blue-300 relative overflow-hidden transition-colors duration-300"
       >
         <div className="p-8 md:p-16">
           {/* Header Section - Page 2 (Smaller) */}
@@ -281,7 +315,7 @@ export function CV() {
             <div className="flex items-center gap-6">
               <h1 className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-100">Hoang Pham</h1>
               <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
-              <p className="text-xs font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">CV // Selected Work Context</p>
+              <p className="text-xs font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">CV // Operating Background</p>
             </div>
             <p className="text-[10px] text-zinc-300 dark:text-zinc-700 font-mono">Selected background and work highlights</p>
           </header>
@@ -303,24 +337,24 @@ export function CV() {
                   {/* Role 4 */}
                   <div className="group">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Senior Graphic Designer</h3>
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Senior Creative Operator</h3>
                       <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2019 — 2022</span>
                     </div>
-                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">Creative Agency Context</p>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">Agency operations environment</p>
                     <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
-                      Led visual identity work for tech-focused clients while building the discipline around systems, repeatability, and cross-channel execution.
+                      Led execution across high-volume client delivery while improving systems, repeatability, and cross-channel operating discipline.
                     </p>
                   </div>
 
                   {/* Role 5 */}
                   <div className="group">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Visual Designer</h3>
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Production Systems Operator</h3>
                       <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2016 — 2019</span>
                     </div>
-                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">In-house Creative Team</p>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">In-house operations environment</p>
                     <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
-                      Executed high-volume creative assets under brand constraints and improved internal workflows to make production more reliable for marketing teams.
+                      Ran high-volume production under tight constraints and improved internal workflows to make delivery more reliable for marketing teams.
                     </p>
                   </div>
                 </div>
@@ -332,14 +366,16 @@ export function CV() {
                   <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">Selected Proof Blocks</h2>
                   <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
-                <div className="grid sm:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">Protocol Systems Work</h4>
-                    <p className="text-[13px] text-zinc-500 dark:text-zinc-500 leading-relaxed">Built modular visual systems for DeFi teams so campaign, brand, and product surfaces could stay coherent under speed.</p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-6 dark:border-zinc-800 dark:bg-zinc-950/70">
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
+                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Protocol systems work</h4>
+                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">Built modular operating systems for DeFi teams so communication, product-adjacent work, and repeated execution could stay coherent under speed.</p>
                   </div>
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">Workflow Leverage</h4>
-                    <p className="text-[13px] text-zinc-500 dark:text-zinc-500 leading-relaxed">Explored automation, templates, and tooling that cut repetitive production work and made execution easier to scale.</p>
+                  <div className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-6 dark:border-zinc-800 dark:bg-zinc-950/70">
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
+                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Workflow leverage</h4>
+                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">Explored automation, templates, and internal tooling directions that cut repetitive work and made execution easier to scale.</p>
                   </div>
                 </div>
               </section>
@@ -355,24 +391,22 @@ export function CV() {
                 </div>
                 <div className="space-y-10">
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Design Stack</h4>
-                    <div className="space-y-2">
-                      {['Figma (Systems)', 'Adobe Creative Suite', 'Motion / Asset Production'].map(tool => (
-                        <div key={tool} className="flex items-center justify-between text-[13px] font-semibold text-zinc-700 dark:text-zinc-300">
-                          <span>{tool}</span>
-                          <div className="w-1 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full" />
-                        </div>
+                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Product Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {['Figma (Systems)', 'Interface Structuring', 'Decision-Surface Thinking'].map(tool => (
+                        <span key={tool} className="rounded-full border border-zinc-200 px-3 py-2 text-[12px] font-semibold text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
+                          {tool}
+                        </span>
                       ))}
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">System Stack</h4>
-                    <div className="space-y-2">
+                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Systems Stack</h4>
+                    <div className="flex flex-wrap gap-2">
                       {['VS Code', 'Automation Workflows', 'AI-Assisted Tooling'].map(tool => (
-                        <div key={tool} className="flex items-center justify-between text-[13px] font-semibold text-zinc-700 dark:text-zinc-300">
-                          <span>{tool}</span>
-                          <div className="w-1 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full" />
-                        </div>
+                        <span key={tool} className="rounded-full border border-zinc-200 px-3 py-2 text-[12px] font-semibold text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
+                          {tool}
+                        </span>
                       ))}
                     </div>
                   </div>

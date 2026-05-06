@@ -62,15 +62,17 @@ export function DJTradeBranchingFlowchart() {
 
         <VerticalArrow label="3 signal lanes" />
 
-        <div className="relative w-full max-w-[1100px] px-4">
-          <div className="hidden lg:block absolute left-1/2 top-[34px] h-10 w-px -translate-x-1/2 bg-zinc-800" />
-          <div className="hidden lg:block absolute left-1/2 top-[74px] h-px w-[66%] -translate-x-1/2 bg-zinc-800" />
-          <div className="hidden lg:block absolute left-[17%] top-[74px] h-10 w-px bg-zinc-800" />
-          <div className="hidden lg:block absolute right-[17%] top-[74px] h-10 w-px bg-zinc-800" />
-          <div className="hidden lg:block absolute left-1/2 top-[74px] h-16 w-px -translate-x-1/2 bg-zinc-800" />
+        <div className="relative w-full max-w-[1100px] px-4 pb-6">
+          <div className="hidden lg:block absolute left-1/2 top-[0px] h-10 w-px -translate-x-1/2 bg-zinc-800" />
+          <div className="hidden lg:block absolute left-1/2 top-[40px] h-px w-[70%] -translate-x-1/2 bg-zinc-800" />
+          <div className="hidden lg:block absolute left-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
+          <div className="hidden lg:block absolute right-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
+          <div className="hidden lg:block absolute left-1/2 top-[40px] h-[132px] w-px -translate-x-1/2 bg-zinc-800" />
+          <div className="hidden lg:block absolute left-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
+          <div className="hidden lg:block absolute right-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
 
           <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
-            <div className="flex justify-center lg:pt-12">
+            <div className="flex justify-center lg:pt-24">
               <SmallBox
                 title="Staff 1 signal checked"
                 subtitle="execution read"
@@ -89,7 +91,7 @@ export function DJTradeBranchingFlowchart() {
               />
             </div>
 
-            <div className="flex justify-center lg:pt-12">
+            <div className="flex justify-center lg:pt-24">
               <SmallBox
                 title="Staff 2 signal checked"
                 subtitle="confirmation read"

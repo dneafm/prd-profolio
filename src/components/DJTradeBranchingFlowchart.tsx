@@ -12,9 +12,25 @@ import {
   XCircle,
 } from "lucide-react";
 
-function SmallBox({ title, subtitle, icon, color = "border-zinc-700" }: { title: string; subtitle: string; icon: React.ReactNode; color?: string }) {
+function SmallBox({
+  title,
+  subtitle,
+  icon,
+  color = "border-zinc-700",
+  compact = false,
+}: {
+  title: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  color?: string;
+  compact?: boolean;
+}) {
   return (
-    <div className={`flex w-full max-w-[min(92vw,340px)] flex-col items-center gap-2 rounded-2xl border px-5 py-4 ${color} bg-zinc-950/60 backdrop-blur-sm`}>
+    <div
+      className={`flex flex-col items-center gap-2 rounded-2xl border bg-zinc-950/60 backdrop-blur-sm ${
+        compact ? "w-full max-w-[220px] px-4 py-3" : "w-full max-w-[min(92vw,340px)] px-5 py-4"
+      } ${color}`}
+    >
       <div className="rounded-full border border-zinc-800 bg-zinc-900 p-2">{icon}</div>
       <h4 className="text-[11px] font-black uppercase tracking-[0.16em] text-center text-white leading-tight">{title}</h4>
       <p className="text-[9px] font-mono uppercase tracking-[0.14em] text-zinc-500 text-center">{subtitle}</p>
@@ -44,25 +60,48 @@ export function DJTradeBranchingFlowchart() {
           color="border-blue-500/30"
         />
 
-        <VerticalArrow />
+        <VerticalArrow label="3 signal lanes" />
 
-        <SmallBox
-          title="Manager signal checked"
-          subtitle="top-level read • bias intent"
-          icon={<Users className="h-4 w-4 text-violet-400" />}
-          color="border-violet-500/30"
-        />
+        <div className="relative w-full max-w-[1100px] px-4">
+          <div className="hidden lg:block absolute left-1/2 top-[34px] h-10 w-px -translate-x-1/2 bg-zinc-800" />
+          <div className="hidden lg:block absolute left-1/2 top-[74px] h-px w-[66%] -translate-x-1/2 bg-zinc-800" />
+          <div className="hidden lg:block absolute left-[17%] top-[74px] h-10 w-px bg-zinc-800" />
+          <div className="hidden lg:block absolute right-[17%] top-[74px] h-10 w-px bg-zinc-800" />
+          <div className="hidden lg:block absolute left-1/2 top-[74px] h-16 w-px -translate-x-1/2 bg-zinc-800" />
 
-        <VerticalArrow />
+          <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
+            <div className="flex justify-center lg:pt-12">
+              <SmallBox
+                title="Staff 1 signal checked"
+                subtitle="execution read"
+                icon={<Users className="h-4 w-4 text-cyan-400" />}
+                color="border-cyan-500/30"
+                compact
+              />
+            </div>
 
-        <SmallBox
-          title="Staff signal checked"
-          subtitle="execution confirmation"
-          icon={<Users className="h-4 w-4 text-cyan-400" />}
-          color="border-cyan-500/30"
-        />
+            <div className="flex justify-center">
+              <SmallBox
+                title="Manager signal checked"
+                subtitle="top-level read • bias intent"
+                icon={<Users className="h-4 w-4 text-violet-400" />}
+                color="border-violet-500/30"
+              />
+            </div>
 
-        <VerticalArrow />
+            <div className="flex justify-center lg:pt-12">
+              <SmallBox
+                title="Staff 2 signal checked"
+                subtitle="confirmation read"
+                icon={<Users className="h-4 w-4 text-sky-400" />}
+                color="border-sky-500/30"
+                compact
+              />
+            </div>
+          </div>
+        </div>
+
+        <VerticalArrow label="signals converge" />
 
         <SmallBox
           title="Bias add / reduce"

@@ -28,12 +28,12 @@ function SmallBox({
   return (
     <div
       className={`flex flex-col items-center gap-2 rounded-2xl border bg-zinc-950/60 backdrop-blur-sm ${
-        compact ? "w-full max-w-[220px] px-4 py-3" : "w-full max-w-[min(92vw,340px)] px-5 py-4"
+        compact ? "w-full max-w-[160px] px-3 py-3" : "w-full max-w-[220px] px-4 py-4"
       } ${color}`}
     >
       <div className="rounded-full border border-zinc-800 bg-zinc-900 p-2">{icon}</div>
-      <h4 className="text-[11px] font-black uppercase tracking-[0.16em] text-center text-white leading-tight">{title}</h4>
-      <p className="text-[9px] font-mono uppercase tracking-[0.14em] text-zinc-500 text-center">{subtitle}</p>
+      <h4 className="text-[10px] font-black uppercase tracking-[0.14em] text-center text-white leading-tight">{title}</h4>
+      <p className="text-[8px] font-mono uppercase tracking-[0.12em] text-zinc-500 text-center">{subtitle}</p>
     </div>
   );
 }
@@ -45,6 +45,96 @@ function VerticalArrow({ label }: { label?: string }) {
         <ArrowDown className="absolute -bottom-1 -left-[5.5px] h-3 w-3 text-zinc-600" />
       </div>
       {label && <div className="mt-2 text-[8px] font-mono uppercase tracking-[0.16em] text-zinc-500">{label}</div>}
+    </div>
+  );
+}
+
+function SignalLanesMobile() {
+  return (
+    <div className="relative w-full max-w-[360px] pb-5 lg:hidden">
+      <div className="absolute left-1/2 top-0 h-6 w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-1/2 top-6 h-px w-[78%] -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[11%] top-6 h-16 w-px bg-zinc-800" />
+      <div className="absolute right-[11%] top-6 h-16 w-px bg-zinc-800" />
+      <div className="absolute left-1/2 top-6 h-10 w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[11%] top-[70px] h-px w-[39%] bg-zinc-800" />
+      <div className="absolute right-[11%] top-[70px] h-px w-[39%] bg-zinc-800" />
+      <div className="absolute left-1/2 top-[70px] h-16 w-px -translate-x-1/2 bg-zinc-800" />
+
+      <div className="flex justify-center">
+        <SmallBox
+          title="Manager signal checked"
+          subtitle="top-level read • bias intent"
+          icon={<Users className="h-4 w-4 text-violet-400" />}
+          color="border-violet-500/30"
+        />
+      </div>
+
+      <div className="mt-4 flex items-start justify-between px-1">
+        <div className="pt-10">
+          <SmallBox
+            title="Staff 1 signal checked"
+            subtitle="execution read"
+            icon={<Users className="h-4 w-4 text-cyan-400" />}
+            color="border-cyan-500/30"
+            compact
+          />
+        </div>
+        <div className="pt-10">
+          <SmallBox
+            title="Staff 2 signal checked"
+            subtitle="confirmation read"
+            icon={<Users className="h-4 w-4 text-sky-400" />}
+            color="border-sky-500/30"
+            compact
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SignalLanesDesktop() {
+  return (
+    <div className="relative hidden w-full max-w-[1100px] px-4 pb-6 lg:block">
+      <div className="absolute left-1/2 top-[0px] h-10 w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-1/2 top-[40px] h-px w-[70%] -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
+      <div className="absolute right-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
+      <div className="absolute left-1/2 top-[40px] h-[132px] w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
+      <div className="absolute right-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
+
+      <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
+        <div className="flex justify-center lg:pt-24">
+          <SmallBox
+            title="Staff 1 signal checked"
+            subtitle="execution read"
+            icon={<Users className="h-4 w-4 text-cyan-400" />}
+            color="border-cyan-500/30"
+            compact
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <SmallBox
+            title="Manager signal checked"
+            subtitle="top-level read • bias intent"
+            icon={<Users className="h-4 w-4 text-violet-400" />}
+            color="border-violet-500/30"
+          />
+        </div>
+
+        <div className="flex justify-center lg:pt-24">
+          <SmallBox
+            title="Staff 2 signal checked"
+            subtitle="confirmation read"
+            icon={<Users className="h-4 w-4 text-sky-400" />}
+            color="border-sky-500/30"
+            compact
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -62,46 +152,8 @@ export function DJTradeBranchingFlowchart() {
 
         <VerticalArrow label="3 signal lanes" />
 
-        <div className="relative w-full max-w-[1100px] px-4 pb-6">
-          <div className="hidden lg:block absolute left-1/2 top-[0px] h-10 w-px -translate-x-1/2 bg-zinc-800" />
-          <div className="hidden lg:block absolute left-1/2 top-[40px] h-px w-[70%] -translate-x-1/2 bg-zinc-800" />
-          <div className="hidden lg:block absolute left-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
-          <div className="hidden lg:block absolute right-[15%] top-[40px] h-[74px] w-px bg-zinc-800" />
-          <div className="hidden lg:block absolute left-1/2 top-[40px] h-[132px] w-px -translate-x-1/2 bg-zinc-800" />
-          <div className="hidden lg:block absolute left-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
-          <div className="hidden lg:block absolute right-[15%] top-[114px] h-px w-[35%] bg-zinc-800" />
-
-          <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
-            <div className="flex justify-center lg:pt-24">
-              <SmallBox
-                title="Staff 1 signal checked"
-                subtitle="execution read"
-                icon={<Users className="h-4 w-4 text-cyan-400" />}
-                color="border-cyan-500/30"
-                compact
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <SmallBox
-                title="Manager signal checked"
-                subtitle="top-level read • bias intent"
-                icon={<Users className="h-4 w-4 text-violet-400" />}
-                color="border-violet-500/30"
-              />
-            </div>
-
-            <div className="flex justify-center lg:pt-24">
-              <SmallBox
-                title="Staff 2 signal checked"
-                subtitle="confirmation read"
-                icon={<Users className="h-4 w-4 text-sky-400" />}
-                color="border-sky-500/30"
-                compact
-              />
-            </div>
-          </div>
-        </div>
+        <SignalLanesMobile />
+        <SignalLanesDesktop />
 
         <VerticalArrow label="signals converge" />
 

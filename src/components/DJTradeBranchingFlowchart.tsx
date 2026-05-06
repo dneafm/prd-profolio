@@ -51,27 +51,18 @@ function VerticalArrow({ label }: { label?: string }) {
 
 function SignalLanesMobile() {
   return (
-    <div className="relative w-full max-w-[360px] pb-5 lg:hidden">
+    <div className="relative w-full max-w-[390px] pb-5 lg:hidden">
       <div className="absolute left-1/2 top-0 h-6 w-px -translate-x-1/2 bg-zinc-800" />
-      <div className="absolute left-1/2 top-6 h-px w-[78%] -translate-x-1/2 bg-zinc-800" />
-      <div className="absolute left-[11%] top-6 h-16 w-px bg-zinc-800" />
-      <div className="absolute right-[11%] top-6 h-16 w-px bg-zinc-800" />
-      <div className="absolute left-1/2 top-6 h-10 w-px -translate-x-1/2 bg-zinc-800" />
-      <div className="absolute left-[11%] top-[70px] h-px w-[39%] bg-zinc-800" />
-      <div className="absolute right-[11%] top-[70px] h-px w-[39%] bg-zinc-800" />
-      <div className="absolute left-1/2 top-[70px] h-16 w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-1/2 top-6 h-px w-[84%] -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[8%] top-6 h-11 w-px bg-zinc-800" />
+      <div className="absolute right-[8%] top-6 h-11 w-px bg-zinc-800" />
+      <div className="absolute left-1/2 top-6 h-7 w-px -translate-x-1/2 bg-zinc-800" />
+      <div className="absolute left-[8%] top-[50px] h-px w-[42%] bg-zinc-800" />
+      <div className="absolute right-[8%] top-[50px] h-px w-[42%] bg-zinc-800" />
+      <div className="absolute left-1/2 top-[50px] h-12 w-px -translate-x-1/2 bg-zinc-800" />
 
-      <div className="flex justify-center">
-        <SmallBox
-          title="Manager signal checked"
-          subtitle="top-level read • bias intent"
-          icon={<Users className="h-4 w-4 text-violet-400" />}
-          color="border-violet-500/30"
-        />
-      </div>
-
-      <div className="mt-4 flex items-start justify-between px-1">
-        <div className="pt-10">
+      <div className="flex items-start justify-between gap-2 px-1">
+        <div className="pt-12">
           <SmallBox
             title="Staff 1 signal checked"
             subtitle="execution read"
@@ -80,7 +71,17 @@ function SignalLanesMobile() {
             compact
           />
         </div>
-        <div className="pt-10">
+
+        <div className="flex justify-center">
+          <SmallBox
+            title="Manager signal checked"
+            subtitle="top-level read • bias intent"
+            icon={<Users className="h-4 w-4 text-violet-400" />}
+            color="border-violet-500/30"
+          />
+        </div>
+
+        <div className="pt-12">
           <SmallBox
             title="Staff 2 signal checked"
             subtitle="confirmation read"

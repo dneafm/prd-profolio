@@ -14,6 +14,8 @@ import {
 import { experiments } from "../data";
 import { ExperimentVisualizer } from "../components/ExperimentVisualizer";
 import { DJTradeFlowchart } from "../components/DJTradeFlowchart";
+import { DJTradeBranchingFlowchart } from "../components/DJTradeBranchingFlowchart";
+import { DJTradeLifecycleFlowchart } from "../components/DJTradeLifecycleFlowchart";
 import { DJTradeSetupFlowchart } from "../components/DJTradeSetupFlowchart";
 import { DJTradeWorkersFlowchart } from "../components/DJTradeWorkersFlowchart";
 import { AgentBoardFlowchart } from "../components/AgentBoardFlowchart";
@@ -215,7 +217,16 @@ export function ExperimentDetail() {
             </div>
             {exp.id === "dj-trade" ? (
               <div className="space-y-6">
-                <DJTradeFlowchart />
+                <div>
+                  <SectionLabel>Main branching flow</SectionLabel>
+                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">Not one route — setup can fail, live conditions can break, and review loops back into the next deployment.</p>
+                  <DJTradeBranchingFlowchart />
+                </div>
+                <div>
+                  <SectionLabel>Core journey</SectionLabel>
+                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">The simple top-level sequence across strategy, workstation, execution, and review.</p>
+                  <DJTradeFlowchart />
+                </div>
                 <div>
                   <SectionLabel>Bot setup flow</SectionLabel>
                   <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">A clearer visual of how a bot becomes deployable.</p>
@@ -225,6 +236,11 @@ export function ExperimentDetail() {
                   <SectionLabel>Worker flow</SectionLabel>
                   <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">How worker roles split setup, monitoring, and review responsibility.</p>
                   <DJTradeWorkersFlowchart />
+                </div>
+                <div>
+                  <SectionLabel>Lifecycle states</SectionLabel>
+                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">The state machine behind draft, live, blocked, review, and redeploy cycles.</p>
+                  <DJTradeLifecycleFlowchart />
                 </div>
               </div>
             ) : (

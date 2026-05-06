@@ -6,7 +6,6 @@ import { useTheme } from "@/context/ThemeContext";
 
 const navItems = [
   { path: "/", label: "Product Focus" },
-  { path: "/main-portfolio", label: "Main Portfolio" },
   { path: "/operator-lab", label: "Operator Lab" },
   { path: "/cv", label: "CV" },
   { path: "/contact", label: "Contact" },

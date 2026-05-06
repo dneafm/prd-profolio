@@ -14,6 +14,8 @@ import {
 import { experiments } from "../data";
 import { ExperimentVisualizer } from "../components/ExperimentVisualizer";
 import { DJTradeFlowchart } from "../components/DJTradeFlowchart";
+import { DJTradeSetupFlowchart } from "../components/DJTradeSetupFlowchart";
+import { DJTradeWorkersFlowchart } from "../components/DJTradeWorkersFlowchart";
 import { AgentBoardFlowchart } from "../components/AgentBoardFlowchart";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -202,14 +204,32 @@ export function ExperimentDetail() {
         )}
 
         {(exp.id === "dj-trade" || exp.id === "agent-board") && (
-          <section className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
-            <SectionLabel>User journey</SectionLabel>
-            <p className="mt-2 mb-6 text-sm text-zinc-500 dark:text-zinc-400">
-              {exp.id === "dj-trade"
-                ? "From setup and readiness checks through execution and review."
-                : "From planning and assignment through handoff, proof, and review."}
-            </p>
-            {exp.id === "dj-trade" ? <DJTradeFlowchart /> : <AgentBoardFlowchart />}
+          <section className="space-y-6 rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
+            <div>
+              <SectionLabel>User journey</SectionLabel>
+              <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                {exp.id === "dj-trade"
+                  ? "From setup and readiness checks through execution and review."
+                  : "From planning and assignment through handoff, proof, and review."}
+              </p>
+            </div>
+            {exp.id === "dj-trade" ? (
+              <div className="space-y-6">
+                <DJTradeFlowchart />
+                <div>
+                  <SectionLabel>Bot setup flow</SectionLabel>
+                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">A clearer visual of how a bot becomes deployable.</p>
+                  <DJTradeSetupFlowchart />
+                </div>
+                <div>
+                  <SectionLabel>Worker flow</SectionLabel>
+                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">How worker roles split setup, monitoring, and review responsibility.</p>
+                  <DJTradeWorkersFlowchart />
+                </div>
+              </div>
+            ) : (
+              <AgentBoardFlowchart />
+            )}
           </section>
         )}
 

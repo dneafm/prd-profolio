@@ -68,8 +68,8 @@ export function CV() {
 
             <div className="flex flex-col items-end gap-4">
               <a
-                href="/cv/HoangPham-CV.pdf"
-                download="HoangPham-CV.pdf"
+                href="/cv/HoangPham-CV-2026.pdf"
+                download="HoangPham-CV-2026.pdf"
                 className="group inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-xl shadow-zinc-900/10 dark:shadow-white/5 hover:shadow-blue-600/20"
               >
                 <Download className="w-4 h-4" /> Download CV
@@ -97,17 +97,24 @@ export function CV() {
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
                   "As a graphic designer deeply interested in Web3 and DeFi, I create visually compelling designs while simplifying complex concepts and driving engagement. Whether brainstorming creative ideas, crafting memes that resonate with the crypto audience, or designing impactful visuals, I aim to contribute meaningfully to my team and foster innovation within this dynamic ecosystem."
                 </p>
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {signalCards.map((card) => {
                     const Icon = card.icon;
                     return (
-                      <div key={card.title} className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-5 dark:border-zinc-800 dark:bg-zinc-950/70">
-                        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                      <div
+                        key={card.title}
+                        className="min-h-[250px] rounded-[1.75rem] border border-zinc-800 bg-zinc-950 px-5 py-6 text-zinc-100 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+                      >
+                        <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-950/80 text-blue-400 ring-1 ring-blue-900/80">
                           <Icon className="h-5 w-5" />
                         </div>
-                        <div className="space-y-1.5">
-                          <p className="text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">{card.title}</p>
-                          <p className="text-[13px] font-semibold leading-relaxed text-zinc-500 dark:text-zinc-400">{card.detail}</p>
+                        <div className="space-y-3">
+                          <p className="text-[28px] leading-[1.05] font-black tracking-tight text-white">
+                            {card.title}
+                          </p>
+                          <p className="max-w-[14ch] text-[14px] font-semibold leading-relaxed text-zinc-400">
+                            {card.detail}
+                          </p>
                         </div>
                       </div>
                     );

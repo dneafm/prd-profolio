@@ -1,26 +1,26 @@
 import { motion } from "motion/react";
-import { Download, Mail, Linkedin, X, Globe, ArrowUpRight, Activity, Boxes, Gauge, Wrench } from "lucide-react";
+import { Download, Mail, Linkedin, Globe, ArrowUpRight, Activity, Boxes, Gauge, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const signalCards = [
   {
-    title: "9 years",
-    detail: "inside fast-moving digital work",
+    title: "8+ years",
+    detail: "across digital, multimedia, and brand design",
     icon: Activity,
   },
   {
-    title: "Crypto-native",
-    detail: "comfortable in dense product context",
+    title: "DeFi-focused",
+    detail: "visual communication for Web3 and crypto-native teams",
     icon: Gauge,
   },
   {
-    title: "Workflow-first",
-    detail: "repeatable systems over one-off output",
+    title: "2D / 3D",
+    detail: "graphics, motion, illustration, and multimedia design",
     icon: Boxes,
   },
   {
-    title: "Builder mode",
-    detail: "tools, ops, structure, execution",
+    title: "Creative production",
+    detail: "templates, brand assets, and design support at scale",
     icon: Wrench,
   },
 ];
@@ -45,36 +45,37 @@ export function CV() {
             <div className="space-y-6">
               <div>
                 <h1 className="text-6xl font-black tracking-tighter text-zinc-900 dark:text-zinc-100 mb-3">Hoang Pham</h1>
-                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 max-w-xl leading-tight tracking-tight">
-                  Product and operations builder focused on internal tools, workflows, dashboards, and automation
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 max-w-xl leading-tight tracking-tight uppercase">
+                  DeFi Designer
                 </p>
               </div>
               
               <div className="flex flex-wrap items-center gap-y-3 gap-x-4 text-[13px] font-bold text-zinc-500 dark:text-zinc-400">
                 <span className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-default">
-                  <Mail className="w-3.5 h-3.5" /> hello@hoangpham.design
+                  <Mail className="w-3.5 h-3.5" /> dneafm@gmail.com
                 </span>
                 <div className="w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full hidden sm:block" />
                 <span className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-default">
-                  <Globe className="w-3.5 h-3.5" /> hoangpham.design
+                  <Globe className="w-3.5 h-3.5" /> Ho Chi Minh
                 </span>
                 <div className="w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full hidden sm:block" />
                 <span className="flex items-center gap-2 px-3 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full border border-emerald-100/50 dark:border-emerald-900/50">
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" /> 
-                  Available for select projects
+                  Open to opportunities
                 </span>
               </div>
             </div>
 
             <div className="flex flex-col items-end gap-4">
-              <button className="group inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-xl shadow-zinc-900/10 dark:shadow-white/5 hover:shadow-blue-600/20">
+              <a
+                href="/cv/HoangPham-CV.pdf"
+                download="HoangPham-CV.pdf"
+                className="group inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 dark:hover:bg-blue-500 transition-all shadow-xl shadow-zinc-900/10 dark:shadow-white/5 hover:shadow-blue-600/20"
+              >
                 <Download className="w-4 h-4" /> Download CV
-              </button>
+              </a>
               <div className="flex gap-2">
-                <a href="#" className="p-3 bg-zinc-50 dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all rounded-xl border border-zinc-100 dark:border-zinc-800">
-                  <X className="w-4 h-4" />
-                </a>
-                <a href="#" className="p-3 bg-zinc-50 dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all rounded-xl border border-zinc-100 dark:border-zinc-800">
+                <a href="https://linkedin.com/hoangpham74" className="p-3 bg-zinc-50 dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all rounded-xl border border-zinc-100 dark:border-zinc-800">
                   <Linkedin className="w-4 h-4" />
                 </a>
               </div>
@@ -94,7 +95,7 @@ export function CV() {
                   <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
-                  "I build practical systems that make work clearer, faster, and easier to run. My focus is on internal tools, dashboards, workflow systems, growth systems, and lightweight automation. I work best where things are still messy, manual, or fragmented and need to be turned into something usable and scalable."
+                  "As a graphic designer deeply interested in Web3 and DeFi, I create visually compelling designs while simplifying complex concepts and driving engagement. Whether brainstorming creative ideas, crafting memes that resonate with the crypto audience, or designing impactful visuals, I aim to contribute meaningfully to my team and foster innovation within this dynamic ecosystem."
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                   {signalCards.map((card) => {
@@ -122,7 +123,6 @@ export function CV() {
                 </div>
                 
                 <div className="space-y-16">
-                  {/* Independent Builder */}
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -133,29 +133,23 @@ export function CV() {
                     <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-blue-600 dark:bg-blue-400" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Independent Product Operator / Builder</h3>
-                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2025 — PRES</span>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
+                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2024 — PRESENT</span>
                       </div>
-                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Self-directed / High-Context Freelance</p>
+                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Factor</p>
                     </div>
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                      <li className="flex gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Worked with <span className="text-zinc-900 dark:text-zinc-100 font-bold">Drift Protocol</span> on interface clarity, operator-facing workflow support, and clearer execution surfaces.</span>
-                      </li>
-                      <li className="flex gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Developing <span className="text-zinc-900 dark:text-zinc-100 font-bold">AI-assisted workflows</span>, internal tooling directions, and structured research surfaces to reduce friction in dense information environments.</span>
-                      </li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Developed and implemented Factor’s brand identity across platforms while maintaining visual consistency.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created custom illustrations, 2D/3D motion design, product demo visuals, and campaign assets.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Designed reusable templates for decks, reports, and recurring social content to keep creative output consistent.</span></li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['Workflow Ops', 'Interface Clarity', 'AI Systems'].map(tag => (
+                      {['Brand Systems', '2D/3D Motion', 'Campaign Design'].map(tag => (
                         <span key={tag} className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-[10px] font-black px-3 py-1 rounded-full border border-blue-100 dark:border-blue-900/30 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>
                   </motion.div>
 
-                  {/* Factor */}
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -166,52 +160,18 @@ export function CV() {
                     <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Workflow Systems Operator</h3>
-                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2024 — 2025</span>
-                      </div>
-                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Factor <span className="text-zinc-300 dark:text-zinc-700 font-normal mx-1">/</span> DeFi Infrastructure</p>
-                    </div>
-                    <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                      <li className="flex gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Built <span className="text-zinc-900 dark:text-zinc-100 font-bold">modular operating frameworks</span> that scaled across recurring work, product-adjacent surfaces, and internal execution rhythms.</span>
-                      </li>
-                      <li className="flex gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Reduced turnaround time by 40% through repeatable workflow structures, reusable systems, and lower-friction execution patterns.</span>
-                      </li>
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {['Systems Thinking', 'Workflow Ops', 'DeFi Context'].map(tag => (
-                        <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Kyber */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="group relative border-l border-zinc-100 pl-6 dark:border-zinc-800"
-                  >
-                    <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                    <div className="flex flex-col mb-4">
-                      <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Systems-Minded Operator</h3>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
                         <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2022 — 2024</span>
                       </div>
-                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Kyber Network <span className="text-zinc-300 dark:text-zinc-700 font-normal mx-1">/</span> DeFi Ecosystem</p>
+                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Kyber Network</p>
                     </div>
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                      <li className="flex gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" />
-                        <span>Translated high-complexity DeFi mechanics into <span className="text-zinc-900 dark:text-zinc-100 font-bold">clearer operator-facing communication</span> for a global crypto-native audience.</span>
-                      </li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created engaging digital assets for marketing campaigns with a strong visual narrative.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Developed multimedia content tailored for social media and crypto-native audiences.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Organized graphic assets for easier reuse, faster access, and more consistent output.</span></li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['Crypto Native', 'Education', 'Clarity Systems'].map(tag => (
+                      {['DeFi Marketing', 'Visual Narrative', 'Asset Systems'].map(tag => (
                         <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>
@@ -230,9 +190,9 @@ export function CV() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { title: "Crypto Context", desc: "Comfortable inside DeFi and crypto-native environments where context is dense, fast-moving, and operationally messy.", variant: "primary" },
-                    { title: "Systems Thinking", desc: "Building modular, repeatable structures that improve speed, consistency, and team execution.", variant: "secondary" },
-                    { title: "Operator Lens", desc: "Working backward from what teams actually need to see, decide, and ship under pressure.", variant: "secondary" }
+                    { title: "DeFi / Web3 Interest", desc: "Strong interest in blockchain, DeFi, gaming, and technology, with a focus on making complex ideas more legible through design.", variant: "primary" },
+                    { title: "Adaptability", desc: "Comfortable moving across brand, campaign, illustration, 2D/3D, and motion work depending on team needs.", variant: "secondary" },
+                    { title: "Problem-solving", desc: "Brings a self-motivated, creative, and practical approach to visual communication challenges.", variant: "secondary" }
                   ].map((strength, i) => (
                     <motion.div 
                       key={strength.title}
@@ -270,7 +230,7 @@ export function CV() {
                   <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400 mb-6">Network</h2>
                   {[
                     { label: "Portfolio", href: "/" },
-                    { label: "Operator Lab", href: "/operator-lab" }
+                    { label: "LinkedIn", href: "https://linkedin.com/hoangpham74" }
                   ].map((link, i) => (
                     <motion.a 
                       key={link.label}
@@ -315,7 +275,7 @@ export function CV() {
             <div className="flex items-center gap-6">
               <h1 className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-100">Hoang Pham</h1>
               <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
-              <p className="text-xs font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">CV // Operating Background</p>
+              <p className="text-xs font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">CV // Design Background</p>
             </div>
             <p className="text-[10px] text-zinc-300 dark:text-zinc-700 font-mono">Selected background and work highlights</p>
           </header>
@@ -334,27 +294,47 @@ export function CV() {
                 </div>
                 
                 <div className="space-y-12">
-                  {/* Role 4 */}
                   <div className="group">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Senior Creative Operator</h3>
-                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2019 — 2022</span>
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Multimedia Designer</h3>
+                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2020 — 2022</span>
                     </div>
-                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">Agency operations environment</p>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">VNG Corporation</p>
                     <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
-                      Led execution across high-volume client delivery while improving systems, repeatability, and cross-channel operating discipline.
+                      Created digital marketing posts, animated videos, stylized game art, 3D elements, and motion content across multimedia campaigns.
                     </p>
                   </div>
 
-                  {/* Role 5 */}
                   <div className="group">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Production Systems Operator</h3>
-                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2016 — 2019</span>
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">2D/3D Designer</h3>
+                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2019 — 2020</span>
                     </div>
-                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">In-house operations environment</p>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">ADT Group</p>
                     <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
-                      Ran high-volume production under tight constraints and improved internal workflows to make delivery more reliable for marketing teams.
+                      Designed digital marketing posts, infographics, internal-event visuals, and incorporated simple animations plus 3D visualization into presentations.
+                    </p>
+                  </div>
+
+                  <div className="group">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">3D Designer</h3>
+                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2018 — 2019</span>
+                    </div>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">Creasia</p>
+                    <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
+                      Designed event activations, displays, games, staging, signage, uniforms, banners, flyers, and invitations while contributing to concept brainstorming.
+                    </p>
+                  </div>
+
+                  <div className="group">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">2D/3D Designer</h3>
+                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">2017 — 2018</span>
+                    </div>
+                    <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight mb-4">Tri Luc Viet</p>
+                    <p className="text-[15px] text-zinc-500 dark:text-zinc-500 leading-relaxed">
+                      Executed artwork layouts, designed POSM for multiple channels, and supported printing and production delivery.
                     </p>
                   </div>
                 </div>
@@ -363,19 +343,19 @@ export function CV() {
               {/* Selected Projects / Proof */}
               <section>
                 <div className="flex items-center gap-4 mb-10">
-                  <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">Selected Proof Blocks</h2>
+                  <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">Tools & Interests</h2>
                   <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-6 dark:border-zinc-800 dark:bg-zinc-950/70">
-                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
-                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Protocol systems work</h4>
-                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">Built modular operating systems for DeFi teams so communication, product-adjacent work, and repeated execution could stay coherent under speed.</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Tools</p>
+                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Creative stack</h4>
+                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">Graphic design, multimedia design, illustration, motion, 2D/3D support, and reusable creative assets for campaigns, branding, and storytelling.</p>
                   </div>
                   <div className="rounded-[1.5rem] border border-zinc-100 bg-zinc-50/80 p-6 dark:border-zinc-800 dark:bg-zinc-950/70">
-                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
-                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Workflow leverage</h4>
-                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">Explored automation, templates, and internal tooling directions that cut repetitive work and made execution easier to scale.</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Interest</p>
+                    <h4 className="mt-3 text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">Domain focus</h4>
+                    <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">DeFi, blockchain, gaming, and technology — especially where visual clarity can help audiences understand complex products faster.</p>
                   </div>
                 </div>
               </section>
@@ -384,16 +364,15 @@ export function CV() {
             {/* Right Column: Stack */}
             <div className="md:col-span-4 space-y-16">
               
-              {/* Stack */}
               <section>
                 <div className="flex items-center gap-4 mb-8">
                   <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">Capabilities</h2>
                 </div>
                 <div className="space-y-10">
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Product Stack</h4>
+                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Design Tools</h4>
                     <div className="flex flex-wrap gap-2">
-                      {['Figma (Systems)', 'Interface Structuring', 'Decision-Surface Thinking'].map(tool => (
+                      {['Graphic Design', 'Illustration', '2D/3D Design'].map(tool => (
                         <span key={tool} className="rounded-full border border-zinc-200 px-3 py-2 text-[12px] font-semibold text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
                           {tool}
                         </span>
@@ -401,9 +380,9 @@ export function CV() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Systems Stack</h4>
+                    <h4 className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Creative Work</h4>
                     <div className="flex flex-wrap gap-2">
-                      {['VS Code', 'Automation Workflows', 'AI-Assisted Tooling'].map(tool => (
+                      {['Motion Design', 'Social Media Visuals', 'Brand Assets'].map(tool => (
                         <span key={tool} className="rounded-full border border-zinc-200 px-3 py-2 text-[12px] font-semibold text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
                           {tool}
                         </span>

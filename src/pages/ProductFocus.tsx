@@ -44,10 +44,9 @@ const differentiators = [
   },
 ];
 
-const productProof = experiments.filter((item) => item.id === "agent-board" || item.id === "rangepilot");
+const productProof = experiments;
 
 const proofStats = [
-  { value: "6+", label: "shipped case studies" },
   { value: "3", label: "operator-tool product systems" },
   { value: "DeFi + AI", label: "domain depth" },
 ];

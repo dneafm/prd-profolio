@@ -4,14 +4,9 @@ import { cn } from "@/lib/utils";
 
 const signalCards = [
   {
-    title: "8+ years",
-    detail: "across digital, multimedia, and brand design",
+    title: "9 years",
+    detail: "across visual systems, crypto-native environments, and execution",
     icon: Activity,
-  },
-  {
-    title: "DeFi-focused",
-    detail: "visual communication for Web3 and crypto-native teams",
-    icon: Gauge,
   },
   {
     title: "2D / 3D",
@@ -95,7 +90,7 @@ export function CV() {
                   <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
-                  "As a graphic designer deeply interested in Web3 and DeFi, I create visually compelling designs while simplifying complex concepts and driving engagement. Whether brainstorming creative ideas, crafting memes that resonate with the crypto audience, or designing impactful visuals, I aim to contribute meaningfully to my team and foster innovation within this dynamic ecosystem."
+                  "9 years across visual systems, crypto-native environments, and fast-moving execution. Strongest at turning dense context into clearer outputs, repeatable workflows, and practical internal systems that help teams move with less friction."
                 </p>
                 <div className="grid gap-5 sm:grid-cols-2">
                   {signalCards.map((card) => {
@@ -140,18 +135,17 @@ export function CV() {
                     <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-blue-600 dark:bg-blue-400" />
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
-                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2024 — PRESENT</span>
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Independent Operator / Designer / Builder</h3>
+                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2025 — PRESENT</span>
                       </div>
-                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Factor</p>
+                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Self-directed / high-context freelance</p>
                     </div>
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Developed and implemented Factor’s brand identity across platforms while maintaining visual consistency.</span></li>
-                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created custom illustrations, 2D/3D motion design, product demo visuals, and campaign assets.</span></li>
-                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Designed reusable templates for decks, reports, and recurring social content to keep creative output consistent.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created a product onboarding video for Drift Protocol to explain a new UI feature and make adoption clearer for users.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Developing AI-assisted workflows, internal tooling directions, and structured research surfaces to reduce friction in dense information environments.</span></li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['Brand Systems', '2D/3D Motion', 'Campaign Design'].map(tag => (
+                      {['Workflow Ops', 'Interface Clarity', 'AI Systems'].map(tag => (
                         <span key={tag} className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-[10px] font-black px-3 py-1 rounded-full border border-blue-100 dark:border-blue-900/30 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>
@@ -168,9 +162,36 @@ export function CV() {
                     <div className="flex flex-col mb-4">
                       <div className="flex justify-between items-start mb-1">
                         <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
-                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">2022 — 2024</span>
+                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">FROM 4/2024</span>
                       </div>
-                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">Kyber Network</p>
+                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">at Factor</p>
+                    </div>
+                    <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Developed and implemented Factor’s brand identity across platforms while maintaining visual consistency.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created custom illustrations, 2D/3D motion design, product demo visuals, and campaign assets.</span></li>
+                      <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Designed reusable templates for decks, reports, and recurring social content to keep creative output consistent.</span></li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      {['System Design', 'Visual Ops', 'DeFi Context'].map(tag => (
+                        <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="group relative border-l border-zinc-100 pl-6 dark:border-zinc-800"
+                  >
+                    <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                    <div className="flex flex-col mb-4">
+                      <div className="flex justify-between items-start mb-1">
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Multimedia Marketing Designer</h3>
+                        <span className="text-[11px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-widest pt-2">FROM 8/2022</span>
+                      </div>
+                      <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-tight">at Kyber Network</p>
                     </div>
                     <ul className="space-y-4 text-[16px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
                       <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Created engaging digital assets for marketing campaigns with a strong visual narrative.</span></li>
@@ -178,7 +199,7 @@ export function CV() {
                       <li className="flex gap-4"><div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0" /><span>Organized graphic assets for easier reuse, faster access, and more consistent output.</span></li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {['DeFi Marketing', 'Visual Narrative', 'Asset Systems'].map(tag => (
+                      {['Crypto Native', 'Education', 'Visual Comm'].map(tag => (
                         <span key={tag} className="bg-zinc-50 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-500 text-[10px] font-black px-3 py-1 rounded-full border border-zinc-100 dark:border-zinc-800 uppercase tracking-tight">{tag}</span>
                       ))}
                     </div>

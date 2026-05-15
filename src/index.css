@@ -13,6 +13,26 @@
 }
 
 @layer utilities {
+  .section-kicker {
+    @apply font-mono text-[11px] font-black uppercase tracking-[0.28em] text-zinc-500 dark:text-zinc-400;
+  }
+
+  .section-title {
+    @apply text-2xl font-black tracking-[-0.03em] text-zinc-950 dark:text-zinc-50 md:text-4xl;
+  }
+
+  .section-copy {
+    @apply text-sm font-medium leading-7 text-zinc-700 dark:text-zinc-300 md:text-base;
+  }
+
+  .surface-panel {
+    @apply border border-zinc-200/80 bg-white/88 shadow-[0_18px_60px_rgba(24,24,27,0.08)] backdrop-blur-sm dark:border-zinc-800/80 dark:bg-zinc-900/72 dark:shadow-[0_20px_80px_rgba(0,0,0,0.28)];
+  }
+
+  .surface-panel-strong {
+    @apply border border-zinc-300/80 bg-white text-zinc-900 shadow-[0_22px_80px_rgba(24,24,27,0.12)] dark:border-zinc-700/80 dark:bg-zinc-900 dark:text-zinc-100;
+  }
+
   .dossier-grid {
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),

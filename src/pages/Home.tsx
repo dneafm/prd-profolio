@@ -43,6 +43,12 @@ const backgroundChapters = [
 const proofCards = [
   {
     label: "Operator Lab",
+    title: "RangePilot",
+    description: "LP operator product work focused on decision boundaries, execution readiness, and blocking unsafe helper-path actions when proof is incomplete.",
+    to: "/operator-lab/rangepilot",
+  },
+  {
+    label: "Operator Lab",
     title: "DJ Trade",
     description: "Trading workflow product work focused on review clarity, execution context, and operator trust under uncertainty.",
     to: "/operator-lab/dj-trade",
@@ -69,15 +75,15 @@ const proofCards = [
 
 export function Home() {
   return (
-    <div className="space-y-24 md:space-y-32">
+    <div className="space-y-16 md:space-y-22">
       <Hero />
 
-      <section className="relative overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-zinc-50/80 px-6 py-8 shadow-[0_24px_90px_rgba(15,23,42,0.05)] backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/45 md:px-10 md:py-10">
+      <section className="surface-panel relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.08),transparent_32%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.1),transparent_32%)]" />
         <div className="relative space-y-8 md:space-y-10">
           <div className="max-w-3xl space-y-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.32em] text-blue-600 dark:text-blue-400">What I help with</p>
-            <h2 className="text-3xl font-black leading-tight tracking-tight text-zinc-950 dark:text-zinc-50 md:text-4xl">
+            <p className="section-kicker text-blue-600 dark:text-blue-400">What I help with</p>
+            <h2 className="section-title">
               I design operator-facing products that make complex workflows easier to trust, use, and ship.
             </h2>
           </div>
@@ -92,7 +98,7 @@ export function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10%" }}
                   transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-zinc-100/70 p-5 dark:border-zinc-800 dark:bg-zinc-950/35 md:p-6"
+                  className="group surface-panel relative overflow-hidden rounded-[1.75rem] p-5 md:p-6"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${chapter.accent} opacity-70 dark:opacity-80`} />
                   <div className="absolute right-4 top-4 text-zinc-950/8 dark:text-white/10">
@@ -125,10 +131,10 @@ export function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[1.75rem] border border-zinc-200/70 bg-zinc-100/70 p-6 dark:border-zinc-800 dark:bg-zinc-900/35 md:p-8"
+            className="surface-panel rounded-[1.75rem] p-6 md:p-8"
           >
             <div className="space-y-4">
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">{chapter.eyebrow}</p>
+              <p className="section-kicker">{chapter.eyebrow}</p>
               <h3 className="text-2xl font-black leading-tight tracking-tight text-zinc-950 dark:text-zinc-50 md:text-[1.75rem]">
                 {chapter.title}
               </h3>
@@ -140,19 +146,19 @@ export function Home() {
         ))}
       </section>
 
-      <section className="space-y-10 md:space-y-14">
-        <div className="flex items-end justify-between gap-6 border-b border-zinc-200 pb-5 dark:border-zinc-800">
+      <section className="space-y-8 md:space-y-10">
+        <div className="flex items-end justify-between gap-6 border-b border-zinc-200/80 pb-4 dark:border-zinc-800/80">
           <div className="space-y-3">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500">Proof</p>
-            <h2 className="text-3xl font-black tracking-tight text-zinc-950 dark:text-zinc-50 md:text-4xl">Flagship work first, background credibility second.</h2>
+            <p className="section-kicker">Proof</p>
+            <h2 className="section-title">Flagship work first, background credibility second.</h2>
           </div>
-          <Link to="/casefiles" className="hidden items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 md:inline-flex">
+          <Link to="/casefiles" className="hidden items-center gap-2 rounded-full border border-blue-500/15 bg-blue-500/[0.05] px-4 py-2 text-[11px] font-black uppercase tracking-[0.24em] text-blue-600 transition-colors hover:bg-blue-500/[0.09] hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 md:inline-flex">
             View all
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
           {proofCards.map((card, index) => (
             <motion.div
               key={card.title}
@@ -163,15 +169,15 @@ export function Home() {
             >
               <Link
                 to={card.to}
-                className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-zinc-200/60 bg-zinc-100/70 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-blue-500/20 hover:shadow-[0_24px_90px_rgba(59,130,246,0.06)] dark:border-zinc-800 dark:bg-zinc-900/40"
+                className="group surface-panel relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-blue-500/20 hover:shadow-[0_24px_90px_rgba(59,130,246,0.10)]"
               >
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(244,244,245,0.72),rgba(244,244,245,0.9))] dark:bg-[linear-gradient(180deg,rgba(24,24,27,0.66),rgba(24,24,27,0.86))]" />
                 <div className="relative space-y-5">
                   <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">{card.label}</p>
                   <h3 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-zinc-50">{card.title}</h3>
-                  <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{card.description}</p>
+                  <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{card.description}</p>
                 </div>
-                <div className="relative mt-8 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-zinc-500 transition-colors group-hover:text-blue-600 dark:text-zinc-400 dark:group-hover:text-blue-400">
+                <div className="relative mt-8 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-zinc-700 transition-colors group-hover:text-blue-600 dark:text-zinc-300 dark:group-hover:text-blue-400">
                   Open
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -182,16 +188,16 @@ export function Home() {
       </section>
 
 
-      <section className="rounded-[2rem] border border-zinc-200/70 bg-zinc-100/80 px-6 py-10 text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900/45 dark:text-zinc-50 md:px-10 md:py-14">
+      <section className="surface-panel rounded-[2rem] px-6 py-9 text-zinc-950 dark:text-zinc-50 md:px-10 md:py-12">
         <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-end">
           <div className="space-y-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">Next chapter</p>
+            <p className="section-kicker text-blue-600 dark:text-blue-400">Next chapter</p>
             <h2 className="max-w-2xl text-3xl font-black leading-tight tracking-tight md:text-5xl">
               I help teams turn messy, high-context workflows into products operators can actually use.
             </h2>
           </div>
           <div className="space-y-5 md:pl-8">
-            <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="section-copy md:text-base">
               Especially for internal tools, AI-assisted workflows, and operator-facing product surfaces where clarity, triage, and execution support need to work together.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">

@@ -2,13 +2,14 @@ import { motion } from "motion/react";
 import { Activity, ArrowRight, Bot, CheckCircle2, Cpu, Filter, Layers, MessageSquare, ShieldAlert, Terminal } from "lucide-react";
 
 export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; isThumbnail?: boolean }) {
-  const containerClass = "w-full h-full bg-[#0a0a0a] text-zinc-300 font-mono flex overflow-hidden relative";
+  const containerClass = "w-full h-full rounded-[1.25rem] border border-white/10 bg-[#0a0a0a] text-zinc-300 font-mono flex overflow-hidden relative shadow-[0_20px_60px_rgba(0,0,0,0.35)]";
 
   switch (id) {
     case "exp-01":
       return (
         <div className={`${containerClass} flex-col p-4 md:p-6 text-[10px] md:text-xs`}>
-          <div className="flex justify-between items-center border-b border-zinc-800 pb-2 mb-2">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_40%)]" />
+          <div className="relative flex justify-between items-center border-b border-zinc-800 pb-2 mb-2">
             <div className="flex items-center gap-2"><Activity className="w-4 h-4 text-blue-500" /> SIGNAL_TRIAGE_MATRIX</div>
             <div className="text-zinc-500">LIVE_FEED</div>
           </div>
@@ -31,7 +32,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "exp-02":
       return (
         <div className={`${containerClass} p-4 md:p-6 gap-4`}>
-          <div className="flex-1 flex flex-col gap-4">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.12),transparent_30%)]" />
+          <div className="relative flex-1 flex flex-col gap-4">
             <div className="flex-1 border border-zinc-800 rounded-lg relative overflow-hidden bg-zinc-900/50 p-4 flex flex-col justify-between">
               <div className="text-[10px] text-zinc-500">ALGO_PERFORMANCE</div>
               <svg className="absolute bottom-0 left-0 w-full h-24" preserveAspectRatio="none" viewBox="0 0 100 100">
@@ -67,7 +69,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "exp-03":
       return (
         <div className={`${containerClass} p-4 md:p-6 gap-4`}>
-          <div className="flex-1 border border-zinc-800 rounded-lg bg-zinc-900/30 p-3 flex flex-col gap-2">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.1),transparent_34%)]" />
+          <div className="relative flex-1 border border-zinc-800 rounded-lg bg-zinc-900/30 p-3 flex flex-col gap-2">
             <div className="text-[10px] text-zinc-500 border-b border-zinc-800 pb-1">RAW_INPUT</div>
             <div className="text-[10px] text-zinc-400 leading-relaxed blur-[0.5px]">
               "Call with the team... they mentioned the new rollup architecture is causing latency issues. Need to check the sequencer logs. Also, tokenomics draft looks good but emission rate is too high."
@@ -100,7 +103,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "exp-04":
       return (
         <div className={`${containerClass} flex-col p-4 md:p-6`}>
-          <div className="text-[10px] text-zinc-500 mb-4 flex items-center gap-2">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.08),transparent_32%)]" />
+          <div className="relative text-[10px] text-zinc-500 mb-4 flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500" /> ACTIVE_OPERATIONS
           </div>
           <div className="flex flex-col gap-2">
@@ -127,7 +131,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "exp-05":
       return (
         <div className={`${containerClass} p-4 md:p-6 gap-4`}>
-          <div className="flex-[2] flex flex-col gap-2">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_35%)]" />
+          <div className="relative flex-[2] flex flex-col gap-2">
             <div className="text-[10px] text-zinc-500 flex items-center gap-2 mb-2">
               <MessageSquare className="w-3 h-3" /> INGESTION_FEED
             </div>
@@ -159,7 +164,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "exp-06":
       return (
         <div className={`${containerClass} flex-col p-4 md:p-6 relative`}>
-          <div className="text-[10px] text-zinc-500 flex justify-between items-center mb-4">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(239,68,68,0.08),transparent_26%),radial-gradient(circle_at_78%_18%,rgba(16,185,129,0.1),transparent_28%)]" />
+          <div className="relative text-[10px] text-zinc-500 flex justify-between items-center mb-4">
             <div className="flex items-center gap-2"><Filter className="w-3 h-3" /> SYBIL_MATRIX</div>
             <div className="flex gap-2">
               <span className="flex items-center gap-1 text-[8px]"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" /> REAL</span>
@@ -191,7 +197,8 @@ export function ExperimentVisualizer({ id, isThumbnail = false }: { id: string; 
     case "agent-board":
       return (
         <div className={`${containerClass} flex-col p-4 md:p-6`}>
-           <div className="flex justify-between items-center border-b border-zinc-800 pb-2 mb-4">
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_34%)]" />
+           <div className="relative flex justify-between items-center border-b border-zinc-800 pb-2 mb-4">
             <div className="flex items-center gap-2">
               <Layers className="w-4 h-4 text-blue-500" />
               <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">AGENT_BOARD_LANE_TRIAGE</span>

@@ -77,13 +77,84 @@ export const notes = [
 
 export const experiments: any[] = [
   {
+    id: "rangepilot",
+    title: "RangePilot: Liquidity Position Manager",
+    status: "Case Study / In Progress",
+    description: "A middle path between high-maintenance perp trading and passive LP drift: range-based operations guided by market assessment.",
+    details: "RangePilot sits between perp trading and pure LP. It gives inventory managers a way to express market views through range-based operations without requiring constant high-frequency trading or accepting passive drift into impermanent loss.",
+    caseStudy: {
+      headline: "Manage LP positions with clearer decisions, safer execution, and less exposure drift.",
+      summary: "Perp trading demands constant high-frequency management. Pure LP stays passive and drifts with impermanent loss. RangePilot sits between them: a range-based operating model that reduces exposure drift while still letting managers adjust positions based on market assessment.",
+      metaStrip: [
+        { label: "Role", value: "Product framing, workflow design, readiness criteria" },
+        { label: "Focus", value: "Range-based inventory management between perp trading and pure LP" },
+        { label: "Outcome", value: "Lower exposure drift with clearer operator control and safer execution gates" }
+      ],
+      problem: [
+        "Managers holding inventory usually face two weak extremes: perp trading, which demands constant high-frequency management, and pure LP, which stays passive and drifts with impermanent loss."
+      ],
+      theIdea: {
+        text: [
+          "RangePilot was shaped as the middle operating model between active perp trading and passive LP holding.",
+          "Instead of forcing constant high-frequency management or passive drift, it lets managers adjust range exposure based on market assessment.",
+          "The product became easier to trust because it could explain both what action to take and when execution should stay blocked."
+        ],
+        bullets: [
+          "market assessment",
+          "pool snapshot",
+          "inventory state",
+          "position snapshot",
+          "range action",
+          "execution readiness",
+          "block reason"
+        ]
+      },
+      decisionMatrix: [
+        {
+          signal: "Bullish / want more upside exposure",
+          posture: "Lean risk-on inside the range",
+          action: "Increase LP or rerange upward",
+        },
+        {
+          signal: "Bearish / want less downside exposure",
+          posture: "Defend inventory and tighten risk",
+          action: "Reduce LP, collect, or rerange lower",
+        },
+        {
+          signal: "Neutral / mean-reverting view",
+          posture: "Harvest inside a defined band",
+          action: "Hold range or rebalance inventory",
+        },
+        {
+          signal: "Unclear view or weak execution proof",
+          posture: "Preserve optionality",
+          action: "Block execution and show the missing proof / parity reason",
+        },
+      ],
+      howItWorks: [
+        { title: "Input market view", desc: "Start from market assessment plus current pool, position, and inventory state." },
+        { title: "Choose the range action", desc: "Decide whether to hold, rebalance, rerange, or collect based on the operating posture you want." },
+        { title: "Validate before execution", desc: "Simulate, reconcile, and check proof, parity, and readiness before advancing." },
+        { title: "Execute or block", desc: "Act only when the route is strong enough; otherwise block and show the exact reason." }
+      ],
+      usefulBullets: [
+        "Created a middle path between perp trading and pure LP",
+        "Let managers express market assessment without full high-frequency trading behavior",
+        "Used blocked execution as a trust feature instead of hiding weak readiness"
+      ],
+      outcome: "RangePilot became a clearer product by defining the space between perp trading and pure LP. Instead of generic automation, it became a range-based operating workflow that reduces exposure drift while still letting managers act on market assessment.",
+      closingLine: "RangePilot became stronger when it was framed as the operating layer between passive LP drift and high-frequency perp management.",
+      images: []
+    }
+  },
+  {
     id: "dj-trade",
     title: "DJ Trade: Standardizing Trading Workflow",
     status: "Case Study",
     description: "Built a trading operations surface that turns readiness checks and review loops into a clearer execution workflow.",
     details: "DJ Trade turns manual trading from a messy, memory-heavy process into a structured operating workflow where setup quality, review surfaces, and live execution context stay visible together.",
     caseStudy: {
-      headline: "Built a trading workflow surface that makes execution readiness and review state visible before and during live decisions",
+      headline: "Review trades faster, act with more confidence, and keep execution context visible.",
       summary: "DJ Trade turns manual trading from a messy, memory-heavy process into a structured operating workflow where readiness checks, review surfaces, and execution context stay connected.",
       metaStrip: [
         { label: "Role", value: "Product design, workflow design, trading operations UX" },
@@ -91,62 +162,49 @@ export const experiments: any[] = [
         { label: "Outcome", value: "Clearer execution and review discipline" }
       ],
       problem: [
-        "Manual trading breaks down in predictable ways.",
-        "The issue is rarely just market direction.",
-        "It is the workflow around the trade: entries influenced by emotion, inconsistent setup judgment, scattered context, skipped risk checks, and weak post-trade review.",
-        "A trader may have a method in theory...",
-        "But not a system that helps apply it consistently in practice."
+        "Manual trading usually breaks in the workflow, not just in market direction.",
+        "Emotion, scattered context, skipped checks, and weak review make good methods hard to apply consistently."
       ],
       theIdea: {
         text: [
-          "DJ Trade was designed as a tool to standardize how trades are prepared, monitored, and reviewed.",
-          "Instead of treating trading like a sequence of isolated clicks...",
-          "It treats it like an operational workflow.",
-          "DJ Trade is where new strategies are forged, tested, and turned into operational workflows.",
-          "That means the product has to show real progress through the workflow itself, not just raw activity or vague status labels.",
-          "Reports are treated as live workflow objects rather than static outputs, so the interface can support follow-up and judgment instead of just display.",
-          "It helps keep these parts connected:"
+          "DJ Trade was designed to standardize how trades are prepared, executed, and reviewed.",
+          "Instead of isolated clicks, it treats trading as an operational workflow with visible progress and safer decision points."
         ],
-        bullets: ["Market context", "Setup quality", "Readiness checks", "Execution state", "Risk controls", "Degraded conditions", "Post-trade review"]
+        bullets: ["Market context", "Setup quality", "Readiness checks", "Execution state", "Risk controls", "Post-trade review"]
       },
       aiIntegration: {
-        title: "DJ Trade brings AI directly into the trading workflow.",
-        description: "Instead of switching between charts, notes, and separate AI chats, traders can describe setups in plain language and get immediate decision support inside the product itself.",
+        title: "DJ Trade brings AI into the trading workflow.",
+        description: "Traders can describe setups in plain language and get immediate support without leaving the product.",
         examples: [
           "“I’d buy on a chart like this”",
-          "“I’d sell when structure starts looking like that”",
           "“Does this setup match my method?”",
           "“What changed since the last review?”"
         ],
-        closing: "By keeping AI inside the workflow, DJ Trade makes discretionary trading faster, clearer, and more consistent, without turning it into a black-box automation tool."
+        closing: "This keeps AI useful inside the workflow instead of turning it into a separate black-box tool."
       },
       howItWorks: [
-        { title: "Structured setup review", desc: "A trade starts with clearer context, not just a feeling from the chart." },
-        { title: "Readiness before execution", desc: "The tool checks whether the setup is actually ready, instead of letting execution happen on impulse." },
-        { title: "Risk visible in the workflow", desc: "Position logic, degraded conditions, and trade readiness become part of the process, not an afterthought." },
-        { title: "Live context during the trade", desc: "The trader can monitor what changed, what matters, and whether conditions still support the position." },
-        { title: "Better exit and settlement visibility", desc: "Execution outcome and settlement details are easier to review after the trade closes." },
-        { title: "Post-trade learning loop", desc: "The trade becomes something that can be reviewed and improved, not just remembered vaguely." }
+        { title: "Structured setup review", desc: "Trades start with clearer context, not just chart instinct." },
+        { title: "Readiness before execution", desc: "The tool checks whether the setup is actually ready." },
+        { title: "Risk visible in the workflow", desc: "Risk and degraded conditions stay visible before and during execution." },
+        { title: "Live context during the trade", desc: "The trader can monitor what changed and whether the setup still holds." },
+        { title: "Post-trade learning loop", desc: "Each trade becomes easier to review and improve." }
       ],
       setupDetails: [
-        "Bot setup starts with naming the workstation bot and selecting the exact symbols it will operate on, so the operator is defining scope before any execution logic is active.",
-        "Timeframe and settlement choices are configured in the same flow, which keeps trade horizon, operational rhythm, and close logic aligned instead of scattered across different screens.",
-        "Readiness is treated like a real preflight step. The bot is not just 'created'; it becomes deployable only when setup quality, context, and downstream worker expectations are clear enough to support live operation."
+        "Bot setup starts with naming the bot and selecting its symbols, so scope is clear before execution starts.",
+        "Timeframe and settlement are configured in the same flow, keeping operating rhythm aligned.",
+        "Readiness works like a preflight step: the bot only becomes deployable when setup and context are strong enough."
       ],
       workerDetails: [
-        "Workers are specialized roles inside the trading workflow rather than generic background processes. They divide responsibility across setup review, monitoring, and follow-up so the operator is not carrying every task alone in memory.",
-        "Crew roles help separate who prepares context, who watches live conditions, and who tracks what changed after execution begins. That makes the system easier to scan under pressure.",
-        "The point of workers is not visual complexity. It is operational clarity: each worker represents a function in the workflow, so the operator can understand where attention should go next and what part of the system is responsible for it."
+        "Workers split responsibility across setup review, monitoring, and follow-up.",
+        "This gives the operator clearer visibility into who handles what and where attention should go next."
       ],
       usefulBullets: [
-        "Reduces emotional and inconsistent execution",
         "Makes trade preparation more repeatable",
         "Brings risk and readiness checks forward",
         "Helps traders act with more structure under pressure",
-        "Improves visibility during degraded or uncertain conditions",
-        "Supports post-trade review and method refinement"
+        "Supports post-trade review and refinement"
       ],
-      outcome: "DJ Trade moves manual trading away from reactive chart-watching and toward a more standardized operational method. The value is not only better interface clarity. It is the ability to show where the operator is in the workflow and what must be true before the next action is safe.",
+      outcome: "DJ Trade turns manual trading into a clearer operating workflow, where the next action depends on visible readiness instead of memory or impulse.",
       closingLine: "DJ Trade helps standardize manual trading so progress is tied to real workflow structure, not memory, impulse, or vague status labels.",
       images: [
         { src: "/dj-djtrade_v3_live_shell_overview.png", role: "hero", story: "Control-surface overview showing live state, system health, worker coordination, and operator guidance in one trading workspace." },
@@ -163,7 +221,7 @@ export const experiments: any[] = [
     description: "A work-management layer for operators building with AI. It makes priorities, blockers, proofs, and next actions legible.",
     details: "AgentBoard is built for real execution, not fake productivity. It gives you a live workspace where projects, blockers, proof of work, and agent activity stay connected, so you can move from idea to verified outcome without losing context.",
     caseStudy: {
-      headline: "Built a coordination layer for working with AI agents without losing context, proof, or control",
+      headline: "Coordinate AI agents with clearer priorities, visible proof, and less context loss.",
       summary: "AgentBoard helps humans and AI agents work inside a shared operational system, where tasks, blockers, verification, artifacts, and handoffs stay connected from start to finish.",
       metaStrip: [
         { label: "Role", value: "Product design, workflow design, system thinking" },

@@ -19,6 +19,8 @@ import { DJTradeLifecycleFlowchart } from "../components/DJTradeLifecycleFlowcha
 import { DJTradeSetupFlowchart } from "../components/DJTradeSetupFlowchart";
 import { DJTradeWorkersFlowchart } from "../components/DJTradeWorkersFlowchart";
 import { AgentBoardFlowchart } from "../components/AgentBoardFlowchart";
+import { RangePilotFlowchart } from "../components/RangePilotFlowchart";
+import { RangePilotTpSlShowcase } from "../components/RangePilotTpSlShowcase";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">{children}</p>;
@@ -47,6 +49,7 @@ export function ExperimentDetail() {
     const supportImages = cs.images?.slice(1) ?? [];
     const workflowSteps = (cs.howItWorks ?? []).slice(0, 4);
     const usefulBullets = (cs.usefulBullets ?? []).slice(0, 4);
+    const decisionMatrix = (cs.decisionMatrix ?? []).slice(0, 4);
     const setupDetails = (cs.setupDetails ?? []).slice(0, 3);
     const workerDetails = (cs.workerDetails ?? []).slice(0, 3);
 
@@ -71,6 +74,9 @@ export function ExperimentDetail() {
                 </div>
 
                 <div className="mt-5 space-y-4">
+                  <p className="text-[11px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">
+                    {exp.title}
+                  </p>
                   <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-zinc-950 dark:text-zinc-50 md:text-5xl">
                     {cs.headline}
                   </h1>
@@ -105,6 +111,10 @@ export function ExperimentDetail() {
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-zinc-400">{heroImage.story}</p>
                 </div>
+              ) : exp.id === "rangepilot" ? (
+                <div className="bg-zinc-950 p-4 md:p-6">
+                  <RangePilotTpSlShowcase />
+                </div>
               ) : (
                 <div className="flex min-h-[320px] items-center justify-center p-8">
                   <ExperimentVisualizer id={exp.id} />
@@ -114,6 +124,7 @@ export function ExperimentDetail() {
           </section>
         </header>
 
+      {exp.id !== "rangepilot" && exp.id !== "dj-trade" && exp.id !== "agent-board" && (
         <section className="grid gap-4 md:grid-cols-3">
           {(cs.metaStrip ?? []).map((meta: any, i: number) => (
             <div key={i} className="rounded-[1.5rem] border border-zinc-200/70 bg-white/85 p-5 dark:border-zinc-800 dark:bg-zinc-900/40">
@@ -122,86 +133,61 @@ export function ExperimentDetail() {
             </div>
           ))}
         </section>
+      )}
 
-        <section className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
-            <SectionLabel>Key problems</SectionLabel>
-            <div className="mt-5 space-y-3">
-              {problemPoints.map((point: string, i: number) => (
-                <div key={i} className="rounded-2xl border border-zinc-200/70 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
-                  <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{point}</p>
+
+
+
+        {decisionMatrix.length > 0 && (
+          <section className="space-y-5 rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
+            <div>
+              <SectionLabel>Decision matrix</SectionLabel>
+              <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">How market assessment maps into posture and action.</p>
+            </div>
+            <div className="overflow-hidden rounded-[1.25rem] border border-zinc-200/70 dark:border-zinc-800">
+              <div className="grid grid-cols-3 border-b border-zinc-200/70 bg-zinc-50/90 dark:border-zinc-800 dark:bg-zinc-950/60">
+                <div className="px-4 py-3 text-[10px] font-black uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">Signal</div>
+                <div className="px-4 py-3 text-[10px] font-black uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">Posture</div>
+                <div className="px-4 py-3 text-[10px] font-black uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">Action</div>
+              </div>
+              {decisionMatrix.map((row: any, i: number) => (
+                <div key={i} className="grid grid-cols-3 border-t border-zinc-200/70 bg-white/80 dark:border-zinc-800 dark:bg-zinc-950/40">
+                  <div className="px-4 py-4 text-sm font-semibold leading-relaxed text-zinc-700 dark:text-zinc-300">{row.signal}</div>
+                  <div className="px-4 py-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{row.posture}</div>
+                  <div className="px-4 py-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{row.action}</div>
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="rounded-[1.75rem] border border-zinc-200/70 bg-zinc-100/80 p-6 dark:border-zinc-800 dark:bg-zinc-900/45 md:p-8">
-            <SectionLabel>Solution shape</SectionLabel>
-            <div className="mt-5 grid gap-3">
-              {ideaBullets.slice(0, 6).map((bullet: string, i: number) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 rounded-2xl border border-zinc-200/70 bg-white/80 px-4 py-3 text-sm font-semibold text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950/55 dark:text-zinc-300"
-                >
-                  <ArrowRight className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                  {bullet}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {(setupDetails.length > 0 || workerDetails.length > 0) && (
-          <section className="grid gap-6 lg:grid-cols-2">
-            {setupDetails.length > 0 && (
-              <div className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
-                <SectionLabel>Bot setup</SectionLabel>
-                <div className="mt-5 space-y-3">
-                  {setupDetails.map((item: string, i: number) => (
-                    <div key={i} className="rounded-2xl border border-zinc-200/70 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
-                      <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {workerDetails.length > 0 && (
-              <div className="rounded-[1.75rem] border border-zinc-200/70 bg-white/85 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8">
-                <SectionLabel>Workers</SectionLabel>
-                <div className="mt-5 space-y-3">
-                  {workerDetails.map((item: string, i: number) => (
-                    <div key={i} className="rounded-2xl border border-zinc-200/70 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
-                      <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </section>
         )}
 
-        {workflowSteps.length > 0 && (
+        {(exp.id === "rangepilot" || (workflowSteps.length > 0 && exp.id !== "dj-trade")) && (
           <section className="space-y-5">
             <div>
               <SectionLabel>Workflow</SectionLabel>
               <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">The shortest useful explanation of how the system works.</p>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {workflowSteps.map((item: any, i: number) => {
-                const icons = [Workflow, Target, Wrench, Users, Sparkles];
-                const Icon = icons[i % icons.length];
-                return (
-                  <div key={i} className="rounded-[1.5rem] border border-zinc-200/70 bg-white/85 p-5 dark:border-zinc-800 dark:bg-zinc-900/40">
-                    <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-zinc-200/70 bg-zinc-50 text-blue-600 dark:border-zinc-800 dark:bg-zinc-950/50 dark:text-blue-400">
-                      <Icon className="h-4 w-4" />
+            {exp.id === "rangepilot" ? (
+              <section className="rounded-[1.75rem] border border-zinc-200/70 bg-zinc-950 p-6 dark:border-zinc-800 md:p-8">
+                <RangePilotFlowchart />
+              </section>
+            ) : (
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {workflowSteps.map((item: any, i: number) => {
+                  const icons = [Workflow, Target, Wrench, Users, Sparkles];
+                  const Icon = icons[i % icons.length];
+                  return (
+                    <div key={i} className="rounded-[1.5rem] border border-zinc-200/70 bg-white/85 p-5 dark:border-zinc-800 dark:bg-zinc-900/40">
+                      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-zinc-200/70 bg-zinc-50 text-blue-600 dark:border-zinc-800 dark:bg-zinc-950/50 dark:text-blue-400">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <h3 className="text-base font-black tracking-tight text-zinc-900 dark:text-zinc-100">{item.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item.desc}</p>
                     </div>
-                    <h3 className="text-base font-black tracking-tight text-zinc-900 dark:text-zinc-100">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
           </section>
         )}
 
@@ -223,19 +209,9 @@ export function ExperimentDetail() {
                   <DJTradeBranchingFlowchart />
                 </div>
                 <div>
-                  <SectionLabel>Core journey</SectionLabel>
-                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">The simple top-level sequence across strategy, workstation, execution, and review.</p>
-                  <DJTradeFlowchart />
-                </div>
-                <div>
                   <SectionLabel>Bot setup flow</SectionLabel>
                   <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">A clearer visual of how a bot becomes deployable.</p>
                   <DJTradeSetupFlowchart />
-                </div>
-                <div>
-                  <SectionLabel>Worker flow</SectionLabel>
-                  <p className="mt-2 mb-4 text-sm text-zinc-500 dark:text-zinc-400">How worker roles split setup, monitoring, and review responsibility.</p>
-                  <DJTradeWorkersFlowchart />
                 </div>
                 <div>
                   <SectionLabel>Lifecycle states</SectionLabel>
@@ -249,13 +225,34 @@ export function ExperimentDetail() {
           </section>
         )}
 
-        {supportImages.length > 0 && (
+        {(exp.id === "rangepilot" || supportImages.length > 0) && (
           <section className="space-y-6">
             <div>
               <SectionLabel>Visual proof</SectionLabel>
               <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">Screens first. Minimal captioning.</p>
             </div>
             <div className="space-y-6">
+              {exp.id === "rangepilot" ? <RangePilotTpSlShowcase /> : null}
+              {exp.id === "rangepilot" ? (
+                <div className="overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white/85 dark:border-zinc-800 dark:bg-zinc-900/40">
+                  <div className="bg-zinc-950 p-4 md:p-6">
+                    <div className="overflow-hidden rounded-[1.25rem] border border-zinc-800 bg-zinc-950">
+                      <img
+                        src="/casefiles/rangepilot/rangepilot-strategy-settings-cover.jpg"
+                        alt="RangePilot strategy settings showing automation guardrails and sensitivity thresholds"
+                        className="w-full h-auto object-contain"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block 2</p>
+                    <p className="mt-3 text-base font-bold leading-snug text-zinc-900 dark:text-zinc-100">
+                      Strategy settings make automation guardrails and sensitivity thresholds adjustable in one operator-facing control surface.
+                    </p>
+                  </div>
+                </div>
+              ) : null}
               {supportImages.map((img: any, i: number) => (
                 <div key={i} className="overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white/85 dark:border-zinc-800 dark:bg-zinc-900/40">
                   <div className="bg-zinc-950 p-4 md:p-6">

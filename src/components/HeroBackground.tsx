@@ -3,8 +3,8 @@ export function HeroBackground() {
     <>
       <div className="absolute inset-x-0 -top-12 bottom-0 pointer-events-none md:-top-12">
         <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_0%,black_78%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_78%,transparent_100%)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(46,107,255,0.22),transparent_38%),radial-gradient(circle_at_78%_34%,rgba(153,102,204,0.18),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,244,245,0.94))] dark:bg-[radial-gradient(circle_at_top,rgba(46,107,255,0.28),transparent_38%),radial-gradient(circle_at_78%_34%,rgba(153,102,204,0.22),transparent_34%),linear-gradient(180deg,rgba(9,9,11,0.97),rgba(3,7,18,0.99))]" />
-          <div className="absolute inset-0 w-full bg-[linear-gradient(to_right,rgba(24,24,27,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,24,27,0.45)_1px,transparent_1px)] bg-[size:84px_84px] opacity-[0.08] mix-blend-soft-light dark:opacity-[0.12] lg:w-screen" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(46,107,255,0.24),transparent_38%),radial-gradient(circle_at_78%_34%,rgba(153,102,204,0.2),transparent_34%),linear-gradient(180deg,rgba(255,255,255,1),rgba(244,244,245,0.96))] dark:bg-[radial-gradient(circle_at_top,rgba(46,107,255,0.32),transparent_38%),radial-gradient(circle_at_78%_34%,rgba(153,102,204,0.24),transparent_34%),linear-gradient(180deg,rgba(9,9,11,0.97),rgba(3,7,18,0.99))]" />
+          <div className="absolute inset-0 w-full bg-[linear-gradient(to_right,rgba(24,24,27,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,24,27,0.45)_1px,transparent_1px)] bg-[size:84px_84px] opacity-[0.1] mix-blend-soft-light dark:opacity-[0.14] lg:w-screen" />
         </div>
       </div>
 

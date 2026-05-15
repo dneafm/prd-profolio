@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
 
 interface CasefileTemplateProps {
+  projectName?: string;
   title: string;
   subtitle: string;
   context: string;
@@ -17,6 +18,7 @@ interface CasefileTemplateProps {
 }
 
 export function CasefileTemplate({
+  projectName,
   title,
   subtitle,
   context,
@@ -40,7 +42,12 @@ export function CasefileTemplate({
         </Link>
         
         <header className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">{title}</h1>
+          <div className="space-y-3">
+            <div className="font-mono text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">
+              {projectName ?? title}
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">{title}</h1>
+          </div>
           <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-2xl">{subtitle}</p>
         </header>
       </motion.div>

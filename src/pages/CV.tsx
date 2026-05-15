@@ -92,22 +92,22 @@ export function CV() {
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
                   "9 years across visual systems, crypto-native environments, and fast-moving execution. Strongest at turning dense context into clearer outputs, repeatable workflows, and practical internal systems that help teams move with less friction."
                 </p>
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {signalCards.map((card) => {
                     const Icon = card.icon;
                     return (
                       <div
                         key={card.title}
-                        className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 px-6 py-6 text-zinc-100 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+                        className="rounded-[1.5rem] border border-zinc-800 bg-zinc-950 px-5 py-5 text-zinc-100 shadow-[0_16px_40px_rgba(0,0,0,0.28)]"
                       >
-                        <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-950/80 text-blue-400 ring-1 ring-blue-900/80">
-                          <Icon className="h-5 w-5" />
+                        <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-950/80 text-blue-400 ring-1 ring-blue-900/80">
+                          <Icon className="h-4.5 w-4.5" />
                         </div>
-                        <div className="space-y-3">
-                          <p className="text-[28px] leading-[1.05] font-black tracking-tight text-white">
+                        <div className="space-y-2.5">
+                          <p className="text-[24px] leading-[1.05] font-black tracking-tight text-white">
                             {card.title}
                           </p>
-                          <p className="text-[14px] font-semibold leading-relaxed text-zinc-400">
+                          <p className="text-[13px] font-semibold leading-relaxed text-zinc-400">
                             {card.detail}
                           </p>
                         </div>

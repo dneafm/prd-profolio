@@ -97,13 +97,13 @@ export function CV() {
                 <p className="text-[19px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
                   "As a graphic designer deeply interested in Web3 and DeFi, I create visually compelling designs while simplifying complex concepts and driving engagement. Whether brainstorming creative ideas, crafting memes that resonate with the crypto audience, or designing impactful visuals, I aim to contribute meaningfully to my team and foster innovation within this dynamic ecosystem."
                 </p>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-5 sm:grid-cols-2">
                   {signalCards.map((card) => {
                     const Icon = card.icon;
                     return (
                       <div
                         key={card.title}
-                        className="min-h-[250px] rounded-[1.75rem] border border-zinc-800 bg-zinc-950 px-5 py-6 text-zinc-100 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+                        className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 px-6 py-6 text-zinc-100 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
                       >
                         <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-950/80 text-blue-400 ring-1 ring-blue-900/80">
                           <Icon className="h-5 w-5" />
@@ -112,7 +112,7 @@ export function CV() {
                           <p className="text-[28px] leading-[1.05] font-black tracking-tight text-white">
                             {card.title}
                           </p>
-                          <p className="max-w-[14ch] text-[14px] font-semibold leading-relaxed text-zinc-400">
+                          <p className="text-[14px] font-semibold leading-relaxed text-zinc-400">
                             {card.detail}
                           </p>
                         </div>

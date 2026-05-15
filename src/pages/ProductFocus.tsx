@@ -142,32 +142,35 @@ export function ProductFocus() {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {productProof.map((card, index) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Link
-                to={`/operator-lab/${card.id}`}
-                className="group surface-panel relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-blue-500/20 hover:shadow-[0_24px_90px_rgba(59,130,246,0.10)]"
+        <div className="-mx-6 overflow-x-auto px-6 pb-2 md:mx-0 md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex snap-x snap-mandatory gap-6">
+            {productProof.map((card, index) => (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="min-w-[85%] snap-start md:min-w-[32rem]"
               >
-                <div className="relative space-y-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">{card.status}</p>
-                  <h3 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-zinc-50">{card.title}</h3>
-                  <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{card.description}</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">Problem, decisions, and product structure</p>
-                </div>
-                <div className="relative mt-8 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-zinc-500 transition-colors group-hover:text-blue-600 dark:text-zinc-400 dark:group-hover:text-blue-400">
-                  Open case
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                <Link
+                  to={`/operator-lab/${card.id}`}
+                  className="group surface-panel relative flex h-full min-h-[16rem] flex-col justify-between overflow-hidden rounded-[1.75rem] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-blue-500/20 hover:shadow-[0_24px_90px_rgba(59,130,246,0.10)]"
+                >
+                  <div className="relative space-y-5">
+                    <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">{card.status}</p>
+                    <h3 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-zinc-50">{card.title}</h3>
+                    <p className="text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-300">{card.description}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">Problem, decisions, and product structure</p>
+                  </div>
+                  <div className="relative mt-8 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-zinc-500 transition-colors group-hover:text-blue-600 dark:text-zinc-400 dark:group-hover:text-blue-400">
+                    Open case
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

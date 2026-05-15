@@ -74,9 +74,6 @@ export function ExperimentDetail() {
                 </div>
 
                 <div className="mt-5 space-y-4">
-                  <p className="text-[11px] font-black uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">
-                    {exp.title}
-                  </p>
                   <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-zinc-950 dark:text-zinc-50 md:text-5xl">
                     {cs.headline}
                   </h1>
@@ -113,7 +110,7 @@ export function ExperimentDetail() {
                 </div>
               ) : exp.id === "rangepilot" ? (
                 <div className="bg-zinc-950 p-4 md:p-6">
-                  <RangePilotTpSlShowcase />
+                  <RangePilotTpSlShowcase hero />
                 </div>
               ) : (
                 <div className="flex min-h-[320px] items-center justify-center p-8">

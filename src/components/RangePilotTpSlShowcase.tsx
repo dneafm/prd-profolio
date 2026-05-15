@@ -1,15 +1,17 @@
-export function RangePilotTpSlShowcase() {
+export function RangePilotTpSlShowcase({ hero = false }: { hero?: boolean }) {
   return (
-    <section className="overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white/85 dark:border-zinc-800 dark:bg-zinc-900/40">
+    <section className={hero ? "overflow-hidden rounded-[1.5rem] border border-zinc-800 bg-zinc-950" : "overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white/85 dark:border-zinc-800 dark:bg-zinc-900/40"}>
       <div className="bg-zinc-950 p-4 md:p-6">
         <div className="overflow-hidden rounded-[1.25rem] border border-zinc-800 bg-[#0b1220] p-4 md:p-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-400">RangePilot</p>
-              <p className="mt-2 text-[10px] font-black uppercase tracking-[0.24em] text-zinc-400">Managed Range on Price Chart</p>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
-                Show each managed segment as a true TP/SL box anchored from a shared entry line, with the spot path moving through those decisions.
-              </p>
+              {!hero ? <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-400">RangePilot</p> : null}
+              <p className={hero ? "text-[10px] font-black uppercase tracking-[0.24em] text-zinc-300" : "mt-2 text-[10px] font-black uppercase tracking-[0.24em] text-zinc-400"}>Managed Range on Price Chart</p>
+              {!hero ? (
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
+                  Show each managed segment as a true TP/SL box anchored from a shared entry line, with the spot path moving through those decisions.
+                </p>
+              ) : null}
             </div>
             <div className="flex flex-wrap gap-3 text-[11px] text-zinc-300">
               <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />TP box</span>
@@ -64,12 +66,14 @@ export function RangePilotTpSlShowcase() {
         </div>
       </div>
 
-      <div className="p-5 md:p-6">
-        <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
-        <p className="mt-3 text-base font-bold leading-snug text-zinc-900 dark:text-zinc-100">
-          TP/SL-style pool showcase: each rerange reset creates a shared entry anchor, with a take-profit box above and a stop-loss box below like a real long-position risk/reward tool.
-        </p>
-      </div>
+      {!hero ? (
+        <div className="p-5 md:p-6">
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">Proof block</p>
+          <p className="mt-3 text-base font-bold leading-snug text-zinc-900 dark:text-zinc-100">
+            TP/SL-style pool showcase: each rerange reset creates a shared entry anchor, with a take-profit box above and a stop-loss box below like a real long-position risk/reward tool.
+          </p>
+        </div>
+      ) : null}
     </section>
   );
 }

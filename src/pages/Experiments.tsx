@@ -1,53 +1,21 @@
 import { motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { experiments } from "../data";
 import { ExperimentVisualizer } from "../components/ExperimentVisualizer";
+import { RangePilotTpSlShowcase } from "../components/RangePilotTpSlShowcase";
 
 export function Experiments() {
-  const featuredExperiment = experiments[0];
-
   return (
     <div className="space-y-12 md:space-y-16">
       <header className="surface-panel relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-8 md:py-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.11),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.09),transparent_34%)]" />
-        <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-          <div className="max-w-2xl space-y-4">
-            <p className="section-kicker text-blue-600 dark:text-blue-400">Operator Lab</p>
-            <h1 className="section-title md:text-5xl">Working proofs for operator-facing products and AI-assisted systems.</h1>
-            <p className="section-copy md:text-lg">
-              A self-initiated lab focused on reducing cognitive load in repeated workflows and making dense information easier to scan, prioritize, and act on.
-            </p>
-          </div>
-
-          {featuredExperiment && (
-            <Link
-              to={`/operator-lab/${featuredExperiment.id}`}
-              className="surface-panel-strong group relative overflow-hidden rounded-[1.75rem] p-5 md:p-6"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_36%)]" />
-              <div className="relative space-y-4">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1 text-[10px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-300">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    Featured proof
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">{featuredExperiment.status}</span>
-                </div>
-                <div className="aspect-[16/9] overflow-hidden rounded-[1.25rem] border border-zinc-200/80 bg-zinc-950 dark:border-zinc-800">
-                  <ExperimentVisualizer id={featuredExperiment.id} />
-                </div>
-                <div className="space-y-2">
-                  <h2 className="text-2xl font-black tracking-tight">{featuredExperiment.title}</h2>
-                  <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{featuredExperiment.description}</p>
-                </div>
-                <div className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">
-                  Open featured case
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
-            </Link>
-          )}
+        <div className="relative max-w-2xl space-y-4">
+          <p className="section-kicker text-blue-600 dark:text-blue-400">Operator Lab</p>
+          <h1 className="section-title md:text-5xl">Working proofs for operator-facing products and AI-assisted systems.</h1>
+          <p className="section-copy md:text-lg">
+            A self-initiated lab focused on reducing cognitive load in repeated workflows and making dense information easier to scan, prioritize, and act on.
+          </p>
         </div>
       </header>
 
@@ -82,7 +50,11 @@ export function Experiments() {
 
               <div className="aspect-video bg-zinc-50 dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-center relative overflow-hidden rounded-[1.25rem] group-hover:border-blue-500/20 transition-colors duration-500">
                 <div className="absolute inset-0 pointer-events-none">
-                  {(exp as any).caseStudy && (exp as any).caseStudy.images && (exp as any).caseStudy.images[0] ? (
+                  {exp.id === "rangepilot" ? (
+                    <div className="absolute inset-0 [&>section]:h-full [&>section]:rounded-none [&>section]:border-0 [&>section>div:first-child]:h-full [&>section>div:first-child]:p-0 [&>section>div:first-child>div]:h-full [&>section>div:first-child>div]:rounded-none [&>section>div:first-child>div]:border-0 [&_svg]:h-full [&_svg]:w-full">
+                      <RangePilotTpSlShowcase hero />
+                    </div>
+                  ) : (exp as any).caseStudy && (exp as any).caseStudy.images && (exp as any).caseStudy.images[0] ? (
                     <img 
                       src={(exp as any).caseStudy.images[0].src} 
                       alt={exp.title} 
